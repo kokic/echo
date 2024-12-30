@@ -5,3 +5,4 @@ author: kokic
 ---
 
 [](./rational-points.md#:embed)
+[](./periodic-functions.md#:embed)

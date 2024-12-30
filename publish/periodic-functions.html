@@ -213,12 +213,16 @@
       });
   });
 </script>
-</head><body><div id="grid-wrapper"><article><section class="block" data-taxon="lemma"><details id="canterbury" open="true"><summary><header><h1><span class="taxon">Lemma. </span>Canterbury 曲线的切线与自身的交点 <a class="slug" href="canterbury.html">[canterbury]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-27</li><li class="meta-item">kokic</li></ul></div></header></summary><p>对 $\Gamma: x^3+y^3=c$ 求导得 $3x^2 + 3y^2y^\prime = 0$, 故 $y^\prime = -\frac{x^2}{y^2}$. 我们任取 $\Gamma$ 上一个点 $P(x_\Box, y_\Box)$. 由此得到该点处的切线 $\ell_P: y - y_\Box = -\frac{x_\Box^2}{y_\Box^2}(x - x_\Box)$. 代入 $\Gamma$, 即</p>
-<p>$$ x^3 + (y_\Box-\frac{x_\Box^2}{y_\Box^2}(x - x_\Box))^3 = x_\Box^3 + y_\Box^3 $$</p>
-<p>注意这里有一个 $(\frac1{y_\Box^2})^3$, 我们将其提出其即可得到</p>
-<p>$$ y_\Box^{-6}(x-x_\Box)^2(y_\Box^6x - x_\Box^6x + x_\Box^7 + 3x_\Box^4y_\Box^3+2x_\Box y_\Box^6) = 0 $$</p>
-<p>解这个关于 $x,y$ 的方程. 这里 $(x-x_\Box)^2$ 当然来自于我们做的 $P$ 点切线, 也就是重根 $x_\Box$. $\Gamma$ 是一条三次曲线, 与直线的交点方程最多三个解, 因此最后一项关于 $x$ 是线性的, 只需要解这个线性方程, 故</p>
-<p>$$ 2P: (x_\Box, y_\Box) \quad \leadsto \quad \left(\frac{x_\Box(x_\Box^3 + 2y_\Box^3)}{x_\Box^3 - y_\Box^3}, \frac{y_\Box(y_\Box^3 + 2x_\Box^3)}{y_\Box^3 - x_\Box^3}\right) $$</p>
+</head><body><div id="grid-wrapper"><article><section class="block" data-taxon="entry"><details id="periodic-functions" open="true"><summary><header><h1><span class="taxon"></span>周期函数的构造 <a class="slug" href="periodic-functions.html">[periodic-functions]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-31</li><li class="meta-item">kokic</li></ul></div></header></summary><p>$\gdef\R{\mathbf{R}}$
+$\gdef\Z{\mathbf{Z}}$
+$\gdef\quads#1{\quad #1 \quad}$
+$\gdef\eqq{\quads=}$</p>
+<p>我们的目的是构造某些完备域上的非常值周期函数. 对于实数域 $\R$, <a href="./circle-curve">圆函数</a> 告诉我们这当然是可行的, 不过我们的构造过程应当不依赖于对圆函数的印象.</p>
+<p>对于周期 $1$. 下面这个观察因为 Weierstraß 的使用而变得广为人知. 具体来说, 可以从这样一个级数出发</p>
+<p>$$ f(x) \eqq \sum_{n \in \Z} \frac1{(n-x)^2}, \quad x \notin \Z $$</p>
+<p>因为 $n$ 取遍了所有整数, $f(x)$ 在映射 $n \mapsto n + k$, $k \in \Z$ 下不变. 这样一来, 如果 $x$ 被选定为任意一个整数, 总会存在 $n-x$ 为零的项使整个级数发散, 这就要求 $x \notin \Z$. 同样的, $f(x)$ 在映射 $x \mapsto x + k$, $k \in \Z$ 下不变, 这就意味着 $f(x)$ 以 $1$ 为周期. 现在我们当然知道这个 $f(x)$ 其实就是 $\pi^2\csc^2(\pi x)$.</p>
+<p>由于 $(n-x)^2 \ge x^2-n^2$, 这使得如下级数也是收敛的</p>
+<p>$$ \sum_{n \in \Z} \frac{x}{x^2-n^2} \quad (= ~ \pi\cot(\pi x)) $$</p>
 </details></section></article>
 
 <nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"></ul></div></nav></div></body></html>

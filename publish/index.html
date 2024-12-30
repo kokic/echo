@@ -126,7 +126,7 @@
 
       a {
         color: black;
-        text-decoration: inherit;
+        text-decoration: underline;
       }
       
       .slug,
@@ -208,7 +208,8 @@
             {left: '\\(', right: '\\)', display: false},
             {left: '\\[', right: '\\]', display: true}
         ],
-        throwOnError : false
+        throwOnError : false, 
+        minRuleThickness: 0.05, 
       });
   });
 </script>
@@ -225,18 +226,19 @@ $\gdef\Q{\mathbf{Q}}$</p>
 <p>$$ 8P = \left(\frac{1243617733990094836481}{609623835676137297449}, \frac{487267171714352336560}{609623835676137297449}\right) $$</p>
 <p><section class="block hide-metadata" data-taxon="lemma"><details id="canterbury" open="true"><summary><header><h1><span class="taxon">Lemma. </span>Canterbury 曲线的切线与自身的交点 <a class="slug" href="canterbury.html">[canterbury]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-27</li><li class="meta-item">kokic</li></ul></div></header></summary><p>对 $\Gamma: x^3+y^3=c$ 求导得 $3x^2 + 3y^2y^\prime = 0$, 故 $y^\prime = -\frac{x^2}{y^2}$. 我们任取 $\Gamma$ 上一个点 $P(x_\Box, y_\Box)$. 由此得到该点处的切线 $\ell_P: y - y_\Box = -\frac{x_\Box^2}{y_\Box^2}(x - x_\Box)$. 代入 $\Gamma$, 即</p>
 <p>$$ x^3 + (y_\Box-\frac{x_\Box^2}{y_\Box^2}(x - x_\Box))^3 = x_\Box^3 + y_\Box^3 $$</p>
-<p>注意这里有一个 $(\frac1{y^2})^3$, 我们将其提出其即可得到</p>
-<p>$$ y^{-6}(x-x_\Box)^2(y_\Box^6x - x_\Box^6x + x_\Box^7 + 3x_\Box^4y_\Box^3+2x_\Box y_\Box^6) = 0 $$</p>
+<p>注意这里有一个 $(\frac1{y_\Box^2})^3$, 我们将其提出其即可得到</p>
+<p>$$ y_\Box^{-6}(x-x_\Box)^2(y_\Box^6x - x_\Box^6x + x_\Box^7 + 3x_\Box^4y_\Box^3+2x_\Box y_\Box^6) = 0 $$</p>
 <p>解这个关于 $x,y$ 的方程. 这里 $(x-x_\Box)^2$ 当然来自于我们做的 $P$ 点切线, 也就是重根 $x_\Box$. $\Gamma$ 是一条三次曲线, 与直线的交点方程最多三个解, 因此最后一项关于 $x$ 是线性的, 只需要解这个线性方程, 故</p>
 <p>$$ 2P: (x_\Box, y_\Box) \quad \leadsto \quad \left(\frac{x_\Box(x_\Box^3 + 2y_\Box^3)}{x_\Box^3 - y_\Box^3}, \frac{y_\Box(y_\Box^3 + 2x_\Box^3)}{y_\Box^3 - x_\Box^3}\right) $$</p>
 </details></section></p>
-<p>反复利用 <span class="link local"><a href="./canterbury" title="该映射">该映射</a></span> 即可得到前文的 $8P$. 当然, 这也给出某个经典的恒等式</p>
+<p>反复利用 <a href="./canterbury">该映射</a> 即可得到前文的 $8P$. 当然, 这也给出某个经典的恒等式</p>
 <p>$$ x^3 + y^3 \eqq \left(\frac{x(x^3 + 2y^3)}{x^3 - y^3}\right)^3 + \left(\frac{y(y^3 + 2x^3)}{y^3 - x^3}\right)^3 $$</p>
+<p>我们称 $\Gamma$ 为 Canterbury 曲线, 因为这个问题来自一本名为 <a href="https://en.wikipedia.org/wiki/The_Canterbury_Puzzles">The Canterbury Puzzles</a> 的书, 这是其中的 “The Puzzle of the Doctor of Physic”.</p>
 <p>考虑一般的三次曲线 $\Gamma$. 已知一有理点时, 我们可以过此点做切线. 已知两有理点 $P, Q$ 时, 连接两点得到直线 $\ell$ 交曲线 $\Gamma$ 于另一点 $S$, 这个时候 $\ell$ 和 $\Gamma$ 的交点方程仍然是一个三次方程. 根与系数的关系给出</p>
 <p>$$ x(P) \spaces + x(Q) \spaces + x(S) \spaces 
 \in \Q $$</p>
 <p>这使得 $x(S) \in \Q$. 我们也可以将这个想法直接应用到二次曲线上.</p>
-<p><section class="block hide-metadata" data-taxon="entry"><details id="circle-parameterization" open="true"><summary><header><h1><span class="taxon"></span>圆的参数化 <a class="slug" href="circle-parameterization.html">[circle-parameterization]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-28</li><li class="meta-item">kokic</li></ul></div></header></summary><p>$\gdef\quads#1{\quad #1 \quad}$
+<p><section class="block hide-metadata" data-taxon="entry"><details id="circular-parameterization" open="true"><summary><header><h1><span class="taxon"></span>圆的参数化 <a class="slug" href="circular-parameterization.html">[circular-parameterization]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-28</li><li class="meta-item">kokic</li></ul></div></header></summary><p>$\gdef\quads#1{\quad #1 \quad}$
 $\gdef\Q{\mathbf{Q}}$
 $\gdef\R{\mathbf{R}}$</p>
 <p>我们对于 $\R$ 上的单位圆周曲线 $C(\R):x^2+y^2=1$ 和它关于角度 $\theta$ 的参数化 $\theta \mapsto (\cos\theta, \sin\theta)$ 是不陌生的. 通过计算这类统称为三角函数或者圆函数的映射, 很容易就能发现圆上的一些不同寻常的点</p>
@@ -250,7 +252,49 @@ $\gdef\R{\mathbf{R}}$</p>
 <p>这样一种寻找点的方式, 通常被称为弦切法.</p>
 <p><div style="text-align: center"><img src = ".\chord-tangent.svg" /></div></p>
 </details></section></p>
+<p><section class="block hide-metadata" data-taxon="definition"><details id="circular-curve" open="true"><summary><header><h1><span class="taxon">Definition. </span>圆曲线 <a class="slug" href="circular-curve.html">[circular-curve]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-30</li><li class="meta-item">kokic</li></ul></div></header></summary><p>$\gdef\d{~\mathrm{d}}$
+$\gdef\arc{\text{arc}}$
+$\gdef\Q{\mathbf{Q}}$</p>
+<!-- 对于某个平面代数曲线 $F(x,y)$ 所确定的轨迹 $X$, $X$-函数定义为 $X$ 的弧长积分 $\arc_X(x) = \int_0^x f(t)\d t$ 的反函数 $\wp_X(x)$, 如果 $\wp_X(x)$ 和 $\wp_X^\prime(x)$ 满足某个微分方程 $D_X$, 且 $D_X$ 是 $\wp_X(x)$ 和 $\wp_X^\prime(x)$ 的代数曲线, 则称 $D_X$ 为 $X$-曲线.  -->
+<p>考虑半径为 $r$ 的实圆周 $x^2+y^2=r^2$，其在上半平面的轨迹可表为函数 $y=\sqrt{r^2-x^2},x\in[-r,r]$，长度为 $$L=\int_{-r}^r\dfrac{r}{\sqrt{r^2-x^2}}\mathrm{d}x=r\arcsin\dfrac{x}{r}\bigg|_{-r}^r=\pi r$$ 因而圆的弧长定义了反正弦函数，即 $$\arcsin x=\int_0^x\dfrac{1}{\sqrt{1-t^2}}\mathrm{d}t$$ 其反函数被称为正弦函数，统称圆函数或者三角函数.</p>
+<p>现在, 注意到 $\cot(x)$ 和 $\cot^\prime(x)$ 满足   $\cot^2(x) + \cot^\prime(x) = 1$, 令 $(\cot(x), \cot^\prime(x)) \mapsto (x,y)$, 即 $y=c-x^2$.</p>
+<p>其他三角函数及其导数也有类似的关系, 以下列出.</p>
+<p>$$\def\arraystretch{1.5}\begin{array}{|c|c|c|} 
+\hline
+u & (u, u^\prime) \mapsto (x,y) & g \\
+\hline
+\cot & y = -x^2-1 & 0 \\ 
+\hline
+\tan & y = x^2 + 1 & 0 \\ 
+\hline
+\cos, \sin & y^2 = 1-x^2 & 0 \\
+\hline
+\sec, \csc & y^2 = x^4-x^2 & 0 \\
+\hline
+\end{array}$$</p>
+<!-- 对于 $y^2 = x^4-x^2$, 这是曲线 $y=x^2+x$ 与 $y=x^2-x$ 的乘积.  -->
+<!-- 
+我们取它的一个根 $\alpha$, 任取 $\beta \in \Q^\times$ 例如 $1$. 做变换
+
+$$ x = \frac{\beta}{t-\alpha}, \quad y = \frac{\beta^2u}{(t-\alpha)^2} \quad (= ~ x^2u) $$
+
+现在计算 
+
+$$ f(x) = g'(\alpha)\beta x^3 + \frac{g''(\alpha)}{2!}\beta^2 x^2 + \frac{g'''(\alpha)}{3!}\beta^3 x + \frac{g''''(\alpha)}{4!}\beta^4 $$ -->
+<!-- 故将此类抛物线称为圆曲线.  -->
+</details></section></p>
+</details></section>
+<section class="block hide-metadata" data-taxon="entry"><details id="periodic-functions" open="true"><summary><header><h1><span class="taxon"></span>周期函数的构造 <a class="slug" href="periodic-functions.html">[periodic-functions]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-31</li><li class="meta-item">kokic</li></ul></div></header></summary><p>$\gdef\R{\mathbf{R}}$
+$\gdef\Z{\mathbf{Z}}$
+$\gdef\quads#1{\quad #1 \quad}$
+$\gdef\eqq{\quads=}$</p>
+<p>我们的目的是构造某些完备域上的非常值周期函数. 对于实数域 $\R$, <a href="./circle-curve">圆函数</a> 告诉我们这当然是可行的, 不过我们的构造过程应当不依赖于对圆函数的印象.</p>
+<p>对于周期 $1$. 下面这个观察因为 Weierstraß 的使用而变得广为人知. 具体来说, 可以从这样一个级数出发</p>
+<p>$$ f(x) \eqq \sum_{n \in \Z} \frac1{(n-x)^2}, \quad x \notin \Z $$</p>
+<p>因为 $n$ 取遍了所有整数, $f(x)$ 在映射 $n \mapsto n + k$, $k \in \Z$ 下不变. 这样一来, 如果 $x$ 被选定为任意一个整数, 总会存在 $n-x$ 为零的项使整个级数发散, 这就要求 $x \notin \Z$. 同样的, $f(x)$ 在映射 $x \mapsto x + k$, $k \in \Z$ 下不变, 这就意味着 $f(x)$ 以 $1$ 为周期. 现在我们当然知道这个 $f(x)$ 其实就是 $\pi^2\csc^2(\pi x)$.</p>
+<p>由于 $(n-x)^2 \ge x^2-n^2$, 这使得如下级数也是收敛的</p>
+<p>$$ \sum_{n \in \Z} \frac{x}{x^2-n^2} \quad (= ~ \pi\cot(\pi x)) $$</p>
 </details></section></p>
 </details></section></article>
 
-<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li><a class="bullet" href="rational-points.html" title="有理点 [rational-points]">■</a><span class="link"><a href="#rational-points">有理点</a></span><ul><li><a class="bullet" href="canterbury.html" title="Canterbury 曲线的切线与自身的交点 [canterbury]">■</a><span class="link"><a href="#canterbury">Canterbury 曲线的切线与自身的交点</a></span></li><li><a class="bullet" href="circle-parameterization.html" title="圆的参数化 [circle-parameterization]">■</a><span class="link"><a href="#circle-parameterization">圆的参数化</a></span></li></ul></li></ul></div></nav></div></body></html>
+<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li><a class="bullet" href="rational-points.html" title="有理点 [rational-points]">■</a><span class="link"><a href="#rational-points">有理点</a></span><ul><li><a class="bullet" href="canterbury.html" title="Canterbury 曲线的切线与自身的交点 [canterbury]">■</a><span class="link"><a href="#canterbury">Canterbury 曲线的切线与自身的交点</a></span></li><li><a class="bullet" href="circular-parameterization.html" title="圆的参数化 [circular-parameterization]">■</a><span class="link"><a href="#circular-parameterization">圆的参数化</a></span></li><li><a class="bullet" href="circular-curve.html" title="圆曲线 [circular-curve]">■</a><span class="link"><a href="#circular-curve">圆曲线</a></span></li></ul></li><li><a class="bullet" href="periodic-functions.html" title="周期函数的构造 [periodic-functions]">■</a><span class="link"><a href="#periodic-functions">周期函数的构造</a></span></li></ul></div></nav></div></body></html>
