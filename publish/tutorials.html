@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en-US"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width"> 
-<title></title><link rel="preconnect" href="https://fonts.googleapis.com">
+<html lang="en"><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width"> <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous">
@@ -248,56 +247,17 @@ nav#toc a.bullet {
   padding-left: 0.2em;
   padding-right: 0.2em;
   text-decoration: none;
-}</style><script>
-document.addEventListener("DOMContentLoaded", () => {
-  document.title = [...document.querySelector("article h1").childNodes]
-    .find(x => x.nodeType == Node.TEXT_NODE)
-    .textContent
-    .trim();
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector("#toc").querySelectorAll("a:not(.bullet)").forEach(e => {
-    const targetId = e.href.substring(e.href.lastIndexOf("#"));
-    const taxon = e.querySelector("span.taxon").innerHTML;
-    document.querySelector("article")
-      .querySelector(targetId)
-      .querySelector("span.taxon")
-      .innerHTML = taxon;
-  })
-});
-</script><body><div id="grid-wrapper"><article><section class="block" data-taxon="definition">
-      <details id=circular-curve open><summary><header><h1><span class="taxon">definition</span>圆曲线 <a class="slug" href="circular-curve.html">[circular-curve]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-30</li><li class="meta-item">kokic</li></ul></div></header></summary><p>$\gdef\d{~\mathrm{d}}$
-$\gdef\arc{\text{arc}}$
-$\gdef\Q{\mathbf{Q}}$</p>
-<!-- 对于某个平面代数曲线 $F(x,y)$ 所确定的轨迹 $X$, $X$-函数定义为 $X$ 的弧长积分 $\arc_X(x) = \int_0^x f(t)\d t$ 的反函数 $\wp_X(x)$, 如果 $\wp_X(x)$ 和 $\wp_X^\prime(x)$ 满足某个微分方程 $D_X$, 且 $D_X$ 是 $\wp_X(x)$ 和 $\wp_X^\prime(x)$ 的代数曲线, 则称 $D_X$ 为 $X$-曲线.  -->
-<p>考虑半径为 $r$ 的实圆周 $x^2+y^2=r^2$，其在上半平面的轨迹可表为函数 $y=\sqrt{r^2-x^2},x\in[-r,r]$，长度为 $$L=\int_{-r}^r\dfrac{r}{\sqrt{r^2-x^2}}\mathrm{d}x=r\arcsin\dfrac{x}{r}\bigg|_{-r}^r=\pi r$$ 因而圆的弧长定义了反正弦函数，即 $$\arcsin x=\int_0^x\dfrac{1}{\sqrt{1-t^2}}\mathrm{d}t$$ 其反函数被称为正弦函数，统称圆函数或者三角函数.</p>
-<p>现在, 注意到 $\cot(x)$ 和 $\cot^\prime(x)$ 满足   $\cot^2(x) + \cot^\prime(x) = 1$, 令 $(\cot(x), \cot^\prime(x)) \mapsto (x,y)$, 即 $y=c-x^2$.</p>
-<p>其他三角函数及其导数也有类似的关系, 以下列出.</p>
-<p>$$\def\arraystretch{1.5}\begin{array}{|c|c|c|} 
-\hline
-u & (u, u^\prime) \mapsto (x,y) & g \\
-\hline
-\cot & y = -x^2-1 & 0 \\ 
-\hline
-\tan & y = x^2 + 1 & 0 \\ 
-\hline
-\cos, \sin & y^2 = 1-x^2 & 0 \\
-\hline
-\sec, \csc & y^2 = x^4-x^2 & 0 \\
-\hline
-\end{array}$$</p>
-<!-- 对于 $y^2 = x^4-x^2$, 这是曲线 $y=x^2+x$ 与 $y=x^2-x$ 的乘积.  -->
-<!-- 
-我们取它的一个根 $\alpha$, 任取 $\beta \in \Q^\times$ 例如 $1$. 做变换
-
-$$ x = \frac{\beta}{t-\alpha}, \quad y = \frac{\beta^2u}{(t-\alpha)^2} \quad (= ~ x^2u) $$
-
-现在计算 
-
-$$ f(x) = g'(\alpha)\beta x^3 + \frac{g''(\alpha)}{2!}\beta^2 x^2 + \frac{g'''(\alpha)}{3!}\beta^3 x + \frac{g''''(\alpha)}{4!}\beta^4 $$ -->
-<!-- 故将此类抛物线称为圆曲线.  -->
+}</style><body><div id="grid-wrapper"><article><section class="block" data-taxon="">
+      <details id=tutorials open><summary><header><h1><span class="taxon"></span>Kodama 写作教程 <a class="slug" href="tutorials.html">[tutorials]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-31</li><li class="meta-item">kokic</li></ul></div></header></summary><p><section class="block hide-metadata" data-taxon="">
+      <details id=install open><summary><header><h1><span class="taxon"></span>安装 <a class="slug" href="install.html">[install]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-31</li><li class="meta-item">kokic</li></ul></div></header></summary><p>你可以根据目标设备的架构直接从 <span class="link external"><a href="https://github.com/kokic/kodama/releases" title="Github Release">Github Release</a></span> 页面下载二进制文件.</p>
+<ul>
+<li>确保 kodama 位于可执行目录.</li>
+<li>确保 kodama 有可执行权限.</li>
+<li>如果你乐意, 将 kodama 添加到环境变量.</li>
+</ul>
+</details>
+    </section></p>
 </details>
     </section></article>
 
-<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"></ul></div></nav></div></body></html>
+<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="install.html" title="安装 [install]">■</a><span class="link"><a href="#install"><span class="taxon"></span>安装</a></span></li></ul></div></nav></div></body></html>

@@ -267,7 +267,8 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 });
 </script><body><div id="grid-wrapper"><article><section class="block" data-taxon="">
-      <details id=rational-points open><summary><header><h1><span class="taxon"></span>有理点 <a class="slug" href="rational-points.html">[rational-points]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-26</li><li class="meta-item">kokic</li></ul></div></header></summary><p>$\gdef\ul#1{\underline{#1}}$
+      <details id=mille-plateaux open><summary><header><h1><span class="taxon"></span>千高原 <a class="slug" href="mille-plateaux.html">[mille-plateaux]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li></ul></div></header></summary><p><section class="block hide-metadata" data-taxon="">
+      <details id=rational-points open><summary><header><h1><span class="taxon"></span>平面曲线的有理点 <a class="slug" href="rational-points.html">[rational-points]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-26</li><li class="meta-item">kokic</li></ul></div></header></summary><p>$\gdef\ul#1{\underline{#1}}$
 $\gdef\spaces#1{~ #1 ~}$
 $\gdef\quads#1{\quad #1 \quad}$
 $\gdef\eqq{\quads=}$
@@ -344,6 +345,21 @@ $$ f(x) = g'(\alpha)\beta x^3 + \frac{g''(\alpha)}{2!}\beta^2 x^2 + \frac{g'''(\
 </details>
     </section></p>
 </details>
+    </section>
+<section class="block hide-metadata" data-taxon="">
+      <details id=periodic-functions open><summary><header><h1><span class="taxon"></span>周期函数的构造 <a class="slug" href="periodic-functions.html">[periodic-functions]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-31</li><li class="meta-item">kokic</li></ul></div></header></summary><p>$\gdef\R{\mathbf{R}}$
+$\gdef\Z{\mathbf{Z}}$
+$\gdef\quads#1{\quad #1 \quad}$
+$\gdef\eqq{\quads=}$</p>
+<p>我们的目的是构造某些完备域上的非常值周期函数. 对于实数域 $\R$, <span class="link local"><a href="./circle-curve" title="圆函数">圆函数</a></span> 告诉我们这当然是可行的, 不过我们的构造过程应当不依赖于对圆函数的印象.</p>
+<p>对于周期 $1$. 下面这个观察因为 Weierstraß 的使用而变得广为人知. 具体来说, 可以从这样一个级数出发</p>
+<p>$$ f(x) \eqq \sum_{n \in \Z} \frac1{(n-x)^2}, \quad x \notin \Z $$</p>
+<p>因为 $n$ 取遍了所有整数, $f(x)$ 在映射 $n \mapsto n + k$, $k \in \Z$ 下不变. 这样一来, 如果 $x$ 被选定为任意一个整数, 总会存在 $n-x$ 为零的项使整个级数发散, 这就要求 $x \notin \Z$. 同样的, $f(x)$ 在映射 $x \mapsto x + k$, $k \in \Z$ 下不变, 这就意味着 $f(x)$ 以 $1$ 为周期. 现在我们当然知道这个 $f(x)$ 其实就是 $\pi^2\csc^2(\pi x)$.</p>
+<p>由于 $(n-x)^2 \ge x^2-n^2$, 这使得如下级数也是收敛的</p>
+<p>$$ \sum_{n \in \Z} \frac{x}{x^2-n^2} \quad (= ~ \pi\cot(\pi x)) $$</p>
+</details>
+    </section></p>
+</details>
     </section></article>
 
-<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="canterbury.html" title="Canterbury 曲线的切线与自身的交点 [canterbury]">■</a><span class="link"><a href="#canterbury"><span class="taxon">Lemma.  1. </span>Canterbury 曲线的切线与自身的交点</a></span></li><li class=""><a class="bullet" href="circular-parameterization.html" title="圆的参数化 [circular-parameterization]">■</a><span class="link"><a href="#circular-parameterization"><span class="taxon">Exegesis.  2. </span>圆的参数化</a></span></li><li class=""><a class="bullet" href="circular-curve.html" title="圆曲线 [circular-curve]">■</a><span class="link"><a href="#circular-curve"><span class="taxon">Definition.  3. </span>圆曲线</a></span></li></ul></div></nav></div></body></html>
+<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="rational-points.html" title="平面曲线的有理点 [rational-points]">■</a><span class="link"><a href="#rational-points"><span class="taxon"> 1. </span>平面曲线的有理点</a></span><ul class="block"><li class=""><a class="bullet" href="canterbury.html" title="Canterbury 曲线的切线与自身的交点 [canterbury]">■</a><span class="link"><a href="#canterbury"><span class="taxon">Lemma.  1.1. </span>Canterbury 曲线的切线与自身的交点</a></span></li><li class=""><a class="bullet" href="circular-parameterization.html" title="圆的参数化 [circular-parameterization]">■</a><span class="link"><a href="#circular-parameterization"><span class="taxon">Exegesis.  1.2. </span>圆的参数化</a></span></li><li class=""><a class="bullet" href="circular-curve.html" title="圆曲线 [circular-curve]">■</a><span class="link"><a href="#circular-curve"><span class="taxon">Definition.  1.3. </span>圆曲线</a></span></li></ul></li><li class=""><a class="bullet" href="periodic-functions.html" title="周期函数的构造 [periodic-functions]">■</a><span class="link"><a href="#periodic-functions"><span class="taxon"> 2. </span>周期函数的构造</a></span></li></ul></div></nav></div></body></html>

@@ -23,7 +23,7 @@ $$ x^3 + y^3 \eqq 9 \quad \color{gray}{(= \quad 1^3+2^3)} $$
 
 $$ 8P = \left(\frac{1243617733990094836481}{609623835676137297449}, \frac{487267171714352336560}{609623835676137297449}\right) $$
 
-[](./canterbury.md#:embed)
+[+](./canterbury.md#:embed)
 
 反复利用 [该映射](./canterbury) 即可得到前文的 $8P$. 当然, 这也给出某个经典的恒等式 
 
@@ -38,6 +38,6 @@ $$ x(P) \spaces + x(Q) \spaces + x(S) \spaces
 
 这使得 $x(S) \in \Q$. 我们也可以将这个想法直接应用到二次曲线上. 
 
-[](./circular-parameterization.md#:embed)
+[+](./circular-parameterization.md#:embed)
 
-[](./circular-curve.md#:embed)
+[+](./circular-curve.md#:embed)
