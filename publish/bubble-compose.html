@@ -266,38 +266,14 @@ document.addEventListener("DOMContentLoaded", () => {
       .innerHTML = taxon;
   })
 });
-</script><body><div id="grid-wrapper"><article><section class="block" data-taxon="Definition. ">
-      <details id=circular-curve open><summary><header><h1><span class="taxon">Definition. </span>圆曲线 <a class="slug" href="circular-curve.html">[circular-curve]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-30</li><li class="meta-item">kokic</li></ul></div></header></summary><p>$\gdef\d{~\mathrm{d}}$
-$\gdef\arc{\text{arc}}$
-$\gdef\Q{\mathbf{Q}}$</p>
-<!-- 对于某个平面代数曲线 $F(x,y)$ 所确定的轨迹 $X$, $X$-函数定义为 $X$ 的弧长积分 $\arc_X(x) = \int_0^x f(t)\d t$ 的反函数 $\wp_X(x)$, 如果 $\wp_X(x)$ 和 $\wp_X^\prime(x)$ 满足某个微分方程 $D_X$, 且 $D_X$ 是 $\wp_X(x)$ 和 $\wp_X^\prime(x)$ 的代数曲线, 则称 $D_X$ 为 $X$-曲线.  -->
-<p>考虑半径为 $r$ 的实圆周 $x^2+y^2=r^2$，其在上半平面的轨迹可表为函数 $y=\sqrt{r^2-x^2},x\in[-r,r]$，长度为 $$L=\int_{-r}^r\dfrac{r}{\sqrt{r^2-x^2}}\mathrm{d}x=r\arcsin\dfrac{x}{r}\bigg|_{-r}^r=\pi r$$ 因而圆的弧长定义了反正弦函数，即 $$\arcsin x=\int_0^x\dfrac{1}{\sqrt{1-t^2}}\mathrm{d}t$$ 其反函数被称为正弦函数，统称圆函数或者三角函数.</p>
-<p>现在, 注意到 $\cot(x)$ 和 $\cot^\prime(x)$ 满足   $\cot^2(x) + \cot^\prime(x) = 1$, 令 $(\cot(x), \cot^\prime(x)) \mapsto (x,y)$, 即 $y=c-x^2$.</p>
-<p>其他三角函数及其导数也有类似的关系, 以下列出.</p>
-<p>$$\def\arraystretch{1.5}\begin{array}{|c|c|c|} 
-\hline
-u & (u, u^\prime) \mapsto (x,y) & g \\
-\hline
-\cot & y = -x^2-1 & 0 \\ 
-\hline
-\tan & y = x^2 + 1 & 0 \\ 
-\hline
-\cos, \sin & y^2 = 1-x^2 & 0 \\
-\hline
-\sec, \csc & y^2 = x^4-x^2 & 0 \\
-\hline
-\end{array}$$</p>
-<!-- 对于 $y^2 = x^4-x^2$, 这是曲线 $y=x^2+x$ 与 $y=x^2-x$ 的乘积.  -->
-<!-- 
-我们取它的一个根 $\alpha$, 任取 $\beta \in \Q^\times$ 例如 $1$. 做变换
-
-$$ x = \frac{\beta}{t-\alpha}, \quad y = \frac{\beta^2u}{(t-\alpha)^2} \quad (= ~ x^2u) $$
-
-现在计算 
-
-$$ f(x) = g'(\alpha)\beta x^3 + \frac{g''(\alpha)}{2!}\beta^2 x^2 + \frac{g'''(\alpha)}{3!}\beta^3 x + \frac{g''''(\alpha)}{4!}\beta^4 $$ -->
-<!-- 故将此类抛物线称为圆曲线.  -->
+</script><body><div id="grid-wrapper"><article><section class="block" data-taxon="">
+      <details id=bubble-compose open><summary><header><h1><span class="taxon"></span>冒泡排序合成置换分解 <a class="slug" href="bubble-compose.html">[bubble-compose]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-26</li><li class="meta-item">kokic</li></ul></div></header></summary><p>任意置换 $\sigma$ 都可被写成若干个对换之积. 这里, 集合 $X$ 上的置换是指 $X$ 到 $X$ 的双射. 而对换 $(i ~ j)$ 则是交换元素 $i,j$ 位置的映射.</p>
+<p><section class="block hide-metadata" data-taxon="Proof. ">
+      <details id=bubble-compose-proof open><summary><header><h1><span class="taxon">Proof. </span>(笔者) <a class="slug" href="bubble-compose-proof.html">[bubble-compose-proof]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-27</li><li class="meta-item">kokic</li></ul></div></header></summary><p>冒泡排序使用若干次对换将 $X$, $Y$ 打到有序列表 $Z$, 把这些对换之积复合出的两个映射记为 $\sigma_X, \sigma_Y$. 现在观察下图, 写出 $\sigma_Y^{-1}\sigma_X$, 这当然就是 $\sigma$.</p>
+<p><div style="text-align: center"><img src = ".\bubble-compose.svg" /></div></p>
+</details>
+    </section></p>
 </details>
     </section></article>
 
-<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"></ul></div></nav></div></body></html>
+<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="bubble-compose-proof.html" title="(笔者) [bubble-compose-proof]">■</a><span class="link"><a href="#bubble-compose-proof"><span class="taxon">Proof. </span>(笔者)</a></span></li></ul></div></nav></div></body></html>

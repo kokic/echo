@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width"> <link rel="preconnect" href="https://fonts.googleapis.com">
+<html lang="en-US"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width"> 
+<title></title><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.15/dist/katex.min.css" integrity="sha384-Htz9HMhiwV8GuQ28Xr9pEs1B4qJiYu/nYLLwlDklR53QibDfmQzi7rYxXhMH/5/u" crossorigin="anonymous">
@@ -247,17 +248,42 @@ nav#toc a.bullet {
   padding-left: 0.2em;
   padding-right: 0.2em;
   text-decoration: none;
-}</style><body><div id="grid-wrapper"><article><section class="block" data-taxon="">
-      <details id=tutorials open><summary><header><h1><span class="taxon"></span>Kodama 写作教程 <a class="slug" href="tutorials.html">[tutorials]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-31</li><li class="meta-item">kokic</li></ul></div></header></summary><p><section class="block hide-metadata" data-taxon="">
-      <details id=install open><summary><header><h1><span class="taxon"></span>安装 <a class="slug" href="install.html">[install]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-31</li><li class="meta-item">kokic</li></ul></div></header></summary><p>你可以根据目标设备的架构直接从 <span class="link external"><a href="https://github.com/kokic/kodama/releases" title="Github Release">Github Release</a></span> 页面下载二进制文件.</p>
+}</style><script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.title = [...document.querySelector("article h1").childNodes]
+    .find(x => x.nodeType == Node.TEXT_NODE)
+    .textContent
+    .trim();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelector("#toc").querySelectorAll("a:not(.bullet)").forEach(e => {
+    const targetId = e.href.substring(e.href.lastIndexOf("#"));
+    const taxon = e.querySelector("span.taxon").innerHTML;
+    document.querySelector("article")
+      .querySelector(targetId)
+      .querySelector("span.taxon")
+      .innerHTML = taxon;
+  })
+});
+</script><body><div id="grid-wrapper"><article><section class="block" data-taxon="">
+      <details id=tutorials open><summary><header><h1><span class="taxon"></span>Kodama Tutorials <a class="slug" href="tutorials.html">[tutorials]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-31</li><li class="meta-item">kokic</li></ul></div></header></summary><p><section class="block hide-metadata" data-taxon="">
+      <details id=tutorials-install open><summary><header><h1><span class="taxon"></span>安装 <a class="slug" href="tutorials/install.html">[tutorials/install]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-31</li><li class="meta-item">kokic</li></ul></div></header></summary><p>你可以根据目标设备的架构直接从 <span class="link external"><a href="https://github.com/kokic/kodama/releases" title="Github Release">Github Release</a></span> 页面下载二进制文件.</p>
 <ul>
 <li>确保 kodama 位于可执行目录.</li>
 <li>确保 kodama 有可执行权限.</li>
 <li>如果你乐意, 将 kodama 添加到环境变量.</li>
 </ul>
+<p>当 <span class="link external"><a href="https://github.com/kokic/kodama/releases" title="Github Release">Github Release</a></span> 页面缺少适合你设备的文件时, 你可以从 <span class="link external"><a href="https://github.com/kokic/kodama" title="源代码">源代码</a></span> 开始自己构建, 这也很容易.</p>
+</details>
+    </section>
+<section class="block hide-metadata" data-taxon="">
+      <details id=tutorials-publish open><summary><header><h1><span class="taxon"></span>本地预览 <a class="slug" href="tutorials/publish.html">[tutorials/publish]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-31</li><li class="meta-item">kokic</li></ul></div></header></summary><p>如果你希望在本地查看生成页面 <code>publish/</code> 的效果, 通常你需要一个本地 http 服务器. 你可以使用任何你熟悉的工具完成这件事. 此处推荐 <span class="link external"><a href="https://github.com/svenstaro/miniserve" title="miniserve">miniserve</a></span>, 安装后在根路径执行如下指令即可.</p>
+<pre><code class="language-sh">miniserve ./publish --index=index.html --pretty-urls
+</code></pre>
 </details>
     </section></p>
 </details>
     </section></article>
 
-<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="install.html" title="安装 [install]">■</a><span class="link"><a href="#install"><span class="taxon"></span>安装</a></span></li></ul></div></nav></div></body></html>
+<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="tutorials/install.html" title="安装 [tutorials/install]">■</a><span class="link"><a href="#tutorials-install"><span class="taxon"></span>安装</a></span></li><li class=""><a class="bullet" href="tutorials/publish.html" title="本地预览 [tutorials/publish]">■</a><span class="link"><a href="#tutorials-publish"><span class="taxon"></span>本地预览</a></span></li></ul></div></nav></div></body></html>
