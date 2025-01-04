@@ -22,15 +22,54 @@
       });
   });
 </script>
-</head><style>body {
+</head><style>
+:root {
+  --content-gap: 15px;
+  --radius: 5px;
+}
+
+body {
   font-family: "Source Serif 4", serif;
   font-optical-sizing: auto;
   hyphens: auto;
 }
 
+pre, code {
+  font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+}
+
 p,
 pre {
   line-height: 1.55;
+}
+
+pre {
+  border-radius: var(--radius);
+  background-color: rgba(0, 100, 100, 0.04);
+  padding: .5em;
+  font-size: 11pt;
+  margin-top: 0em;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+code {
+  border-radius: var(--radius);
+  background-color: rgba(0, 100, 100, 0.04);
+  padding: 0.2em;
+  font-size: 0.9em;
+}
+
+/* !forest */
+pre>code {
+  border-radius: 0;
+  background-color: transparent;
+  padding: 0;
 }
 
 h1,
@@ -128,6 +167,33 @@ article>section>details>summary>header>h1>.taxon {
 
 .block.hide-metadata>details>summary>header>.metadata {
   display: none;
+}
+
+img {
+  object-fit: cover;
+  max-width: 100%;
+}
+
+figure {
+  text-align: center;
+}
+
+figcaption {
+  font-style: italic;
+  padding: 3px;
+}
+
+mark {
+  background-color: rgb(255, 255, 151);
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: gainsboro;
+  border: 0 none;
+  width: 100%;
+  height: 2px;
 }
 
 .metadata ul {
@@ -278,6 +344,23 @@ document.addEventListener("DOMContentLoaded", () => {
 </details>
     </section>
 <section class="block hide-metadata" data-taxon="">
+      <details id=tutorials-compile open><summary><header><h1><span class="taxon"></span>编译 <a class="slug" href="tutorials/compile.html">[tutorials/compile]</a></h1><div class="metadata"><ul><li class="meta-item">2025-1-4</li><li class="meta-item">kokic</li></ul></div></header></summary><p>指令 <code>kodama compile</code> 或缩写为 <code>kodama c</code> 将输入的 Markdown 文件构建成 HTML 文件.</p>
+<pre><code>$ kodama c --help
+Compiles an input markdown file into HTML format
+
+Usage: kodama.exe compile [OPTIONS] &lt;INPUT&gt;
+
+Arguments:
+  &lt;INPUT&gt;  Path to input Typst file
+
+Options:
+  -o, --output &lt;OUTPUT&gt;  Path to output dir [default: ./publish]
+  -r, --root &lt;ROOT&gt;      Configures the project root (for absolute paths) [default: ./] 
+  -h, --help             Print help
+</code></pre>
+</details>
+    </section>
+<section class="block hide-metadata" data-taxon="">
       <details id=tutorials-publish open><summary><header><h1><span class="taxon"></span>本地预览 <a class="slug" href="tutorials/publish.html">[tutorials/publish]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-31</li><li class="meta-item">kokic</li></ul></div></header></summary><p>如果你希望在本地查看生成页面 <code>publish/</code> 的效果, 通常你需要一个本地 http 服务器. 你可以使用任何你熟悉的工具完成这件事. 此处推荐 <span class="link external"><a href="https://github.com/svenstaro/miniserve" title="miniserve">miniserve</a></span>, 安装后在根路径执行如下指令即可.</p>
 <pre><code class="language-sh">miniserve ./publish --index=index.html --pretty-urls
 </code></pre>
@@ -286,4 +369,4 @@ document.addEventListener("DOMContentLoaded", () => {
 </details>
     </section></article>
 
-<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="tutorials/install.html" title="安装 [tutorials/install]">■</a><span class="link"><a href="#tutorials-install"><span class="taxon"></span>安装</a></span></li><li class=""><a class="bullet" href="tutorials/publish.html" title="本地预览 [tutorials/publish]">■</a><span class="link"><a href="#tutorials-publish"><span class="taxon"></span>本地预览</a></span></li></ul></div></nav></div></body></html>
+<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="tutorials/install.html" title="安装 [tutorials/install]">■</a><span class="link"><a href="#tutorials-install"><span class="taxon"></span>安装</a></span></li><li class=""><a class="bullet" href="tutorials/compile.html" title="编译 [tutorials/compile]">■</a><span class="link"><a href="#tutorials-compile"><span class="taxon"></span>编译</a></span></li><li class=""><a class="bullet" href="tutorials/publish.html" title="本地预览 [tutorials/publish]">■</a><span class="link"><a href="#tutorials-publish"><span class="taxon"></span>本地预览</a></span></li></ul></div></nav></div></body></html>

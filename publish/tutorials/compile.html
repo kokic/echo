@@ -332,13 +332,21 @@ document.addEventListener("DOMContentLoaded", () => {
       .innerHTML = taxon;
   })
 });
-</script><body><div id="grid-wrapper"><article><section class="block" data-taxon="Lemma. ">
-      <details id=canterbury open><summary><header><h1><span class="taxon">Lemma. </span>Canterbury 曲线的切线与自身的交点 <a class="slug" href="canterbury.html">[canterbury]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-27</li><li class="meta-item">kokic</li></ul></div></header></summary><p>对 $\Gamma: x^3+y^3=c$ 求导得 $3x^2 + 3y^2y^\prime = 0$, 故 $y^\prime = -\frac{x^2}{y^2}$. 我们任取 $\Gamma$ 上一个点 $P(x_\Box, y_\Box)$. 由此得到该点处的切线 $\ell_P: y - y_\Box = -\frac{x_\Box^2}{y_\Box^2}(x - x_\Box)$. 代入 $\Gamma$, 即</p>
-<p>$$ x^3 + (y_\Box-\frac{x_\Box^2}{y_\Box^2}(x - x_\Box))^3 = x_\Box^3 + y_\Box^3 $$</p>
-<p>注意这里有一个 $(\frac1{y_\Box^2})^3$, 我们将其提出其即可得到</p>
-<p>$$ y_\Box^{-6}(x-x_\Box)^2(y_\Box^6x - x_\Box^6x + x_\Box^7 + 3x_\Box^4y_\Box^3+2x_\Box y_\Box^6) = 0 $$</p>
-<p>解这个关于 $x,y$ 的方程. 这里 $(x-x_\Box)^2$ 当然来自于我们做的 $P$ 点切线, 也就是重根 $x_\Box$. $\Gamma$ 是一条三次曲线, 与直线的交点方程最多三个解, 因此最后一项关于 $x$ 是线性的, 只需要解这个线性方程, 故</p>
-<p>$$ 2P: (x_\Box, y_\Box) \quad \leadsto \quad \left(\frac{x_\Box(x_\Box^3 + 2y_\Box^3)}{x_\Box^3 - y_\Box^3}, \frac{y_\Box(y_\Box^3 + 2x_\Box^3)}{y_\Box^3 - x_\Box^3}\right) $$</p>
+</script><body><div id="grid-wrapper"><article><section class="block" data-taxon="">
+      <details id=tutorials-compile open><summary><header><h1><span class="taxon"></span>Kodama 编译指令 <a class="slug" href="tutorials/compile.html">[tutorials/compile]</a></h1><div class="metadata"><ul><li class="meta-item">2025-1-4</li><li class="meta-item">kokic</li></ul></div></header></summary><p>指令 <code>kodama compile</code> 或缩写为 <code>kodama c</code> 将输入的 Markdown 文件构建成 HTML 文件.</p>
+<pre><code>$ kodama c --help
+Compiles an input markdown file into HTML format
+
+Usage: kodama.exe compile [OPTIONS] &lt;INPUT&gt;
+
+Arguments:
+  &lt;INPUT&gt;  Path to input Typst file
+
+Options:
+  -o, --output &lt;OUTPUT&gt;  Path to output dir [default: ./publish]
+  -r, --root &lt;ROOT&gt;      Configures the project root (for absolute paths) [default: ./] 
+  -h, --help             Print help
+</code></pre>
 </details>
     </section></article>
 
