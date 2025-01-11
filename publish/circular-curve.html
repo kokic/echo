@@ -17,6 +17,7 @@
             {left: '\\(', right: '\\)', display: false},
             {left: '\\[', right: '\\]', display: true}
         ],
+        strict: false, 
         throwOnError : false, 
         minRuleThickness: 0.05, 
       });
@@ -70,6 +71,15 @@ pre>code {
   border-radius: 0;
   background-color: transparent;
   padding: 0;
+}
+
+/* !forest */
+.footnote-definition>p {
+  display: inline;
+}
+
+.display-none {
+  display: none;
 }
 
 h1,
@@ -333,7 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 });
 </script><body><div id="grid-wrapper"><article><section class="block" data-taxon="Definition. ">
-      <details id=circular-curve open><summary><header><h1><span class="taxon">Definition. </span>圆曲线 <a class="slug" href="circular-curve.html">[circular-curve]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-30</li><li class="meta-item">kokic</li></ul></div></header></summary><p>$\gdef\d{~\mathrm{d}}$
+      <details id=circular-curve open><summary><header><h1><span class="taxon">Definition. </span>圆曲线 <a class="slug" href="/circular-curve.html">[circular-curve]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-12-30</li></ul></div></header></summary><p>$\gdef\d{~\mathrm{d}}$
 $\gdef\arc{\text{arc}}$
 $\gdef\Q{\mathbf{Q}}$</p>
 <!-- 对于某个平面代数曲线 $F(x,y)$ 所确定的轨迹 $X$, $X$-函数定义为 $X$ 的弧长积分 $\arc_X(x) = \int_0^x f(t)\d t$ 的反函数 $\wp_X(x)$, 如果 $\wp_X(x)$ 和 $\wp_X^\prime(x)$ 满足某个微分方程 $D_X$, 且 $D_X$ 是 $\wp_X(x)$ 和 $\wp_X^\prime(x)$ 的代数曲线, 则称 $D_X$ 为 $X$-曲线.  -->

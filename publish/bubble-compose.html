@@ -17,6 +17,7 @@
             {left: '\\(', right: '\\)', display: false},
             {left: '\\[', right: '\\]', display: true}
         ],
+        strict: false, 
         throwOnError : false, 
         minRuleThickness: 0.05, 
       });
@@ -70,6 +71,15 @@ pre>code {
   border-radius: 0;
   background-color: transparent;
   padding: 0;
+}
+
+/* !forest */
+.footnote-definition>p {
+  display: inline;
+}
+
+.display-none {
+  display: none;
 }
 
 h1,
@@ -333,13 +343,13 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 });
 </script><body><div id="grid-wrapper"><article><section class="block" data-taxon="">
-      <details id=bubble-compose open><summary><header><h1><span class="taxon"></span>冒泡排序合成置换分解 <a class="slug" href="bubble-compose.html">[bubble-compose]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-26</li><li class="meta-item">kokic</li></ul></div></header></summary><p>任意置换 $\sigma$ 都可被写成若干个对换之积. 这里, 集合 $X$ 上的置换是指 $X$ 到 $X$ 的双射. 而对换 $(i ~ j)$ 则是交换元素 $i,j$ 位置的映射.</p>
+      <details id=bubble-compose open><summary><header><h1><span class="taxon"></span>冒泡排序合成置换分解 <a class="slug" href="/bubble-compose.html">[bubble-compose]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-12-26</li></ul></div></header></summary><p>任意置换 $\sigma$ 都可被写成若干个对换之积. 这里, 集合 $X$ 上的置换是指 $X$ 到 $X$ 的双射. 而对换 $(i ~ j)$ 则是交换元素 $i,j$ 位置的映射.</p>
 <p><section class="block hide-metadata" data-taxon="Proof. ">
-      <details id=bubble-compose-proof open><summary><header><h1><span class="taxon">Proof. </span>(笔者) <a class="slug" href="bubble-compose-proof.html">[bubble-compose-proof]</a></h1><div class="metadata"><ul><li class="meta-item">2024-12-27</li><li class="meta-item">kokic</li></ul></div></header></summary><p>冒泡排序使用若干次对换将 $X$, $Y$ 打到有序列表 $Z$, 把这些对换之积复合出的两个映射记为 $\sigma_X, \sigma_Y$. 现在观察下图, 写出 $\sigma_Y^{-1}\sigma_X$, 这当然就是 $\sigma$.</p>
-<p><div style="text-align: center"><img src = ".\bubble-compose.svg" /></div></p>
+      <details id=bubble-compose-proof open><summary><header><h1><span class="taxon">Proof. </span>(笔者) <a class="slug" href="/bubble-compose-proof.html">[bubble-compose-proof]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-12-27</li></ul></div></header></summary><p>冒泡排序使用若干次对换将 $X$, $Y$ 打到有序列表 $Z$, 把这些对换之积复合出的两个映射记为 $\sigma_X, \sigma_Y$. 现在观察下图, 写出 $\sigma_Y^{-1}\sigma_X$, 这当然就是 $\sigma$.</p>
+<p><div style="text-align: center"><img src = "/.\bubble-compose.svg" /></div></p>
 </details>
     </section></p>
 </details>
     </section></article>
 
-<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="bubble-compose-proof.html" title="(笔者) [bubble-compose-proof]">■</a><span class="link"><a href="#bubble-compose-proof"><span class="taxon">Proof. </span>(笔者)</a></span></li></ul></div></nav></div></body></html>
+<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class="display-none"><a class="bullet" href="bubble-compose-proof.html" title="(笔者) [bubble-compose-proof]">■</a><span class="link"><a href="#bubble-compose-proof"><span class="taxon">Proof. </span>(笔者)</a></span></li></ul></div></nav></div></body></html>

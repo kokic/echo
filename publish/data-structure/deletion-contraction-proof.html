@@ -342,10 +342,19 @@ document.addEventListener("DOMContentLoaded", () => {
       .innerHTML = taxon;
   })
 });
-</script><body><div id="grid-wrapper"><article><section class="block" data-taxon="">
-      <details id=tutorials-publish open><summary><header><h1><span class="taxon"></span>本地预览 <a class="slug" href="/tutorials/publish.html">[tutorials/publish]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-12-31</li></ul></div></header></summary><p>如果你希望在本地查看生成页面 <code>publish/</code> 的效果, 通常你需要一个本地 http 服务器. 你可以使用任何你熟悉的工具完成这件事. 此处推荐 <span class="link external"><a href="https://github.com/svenstaro/miniserve" title="miniserve">miniserve</a></span>, 安装后在 kodama 项目的根路径执行如下指令即可.</p>
-<pre><code class="language-sh">miniserve ./publish --index=index.html --pretty-urls
-</code></pre>
+</script><body><div id="grid-wrapper"><article><section class="block" data-taxon="Proof. ">
+      <details id=data-structure-deletion-contraction-proof open><summary><header><h1><span class="taxon">Proof. </span> <a class="slug" href="/data-structure/deletion-contraction-proof.html">[data-structure/deletion-contraction-proof]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-7-21</li></ul></div></header></summary><p>$\gdef\quads#1{\quad #1 \quad}$
+$\gdef\eqq{\quads=}$
+$\gdef\without{\setminus}$</p>
+<p>$\gdef\str#1{{\footnotesize #1}}$
+$\gdef\sstr#1{~{\footnotesize #1}~}$</p>
+<p>假定边 $e$ 的两个端点分别为 $A,B$, 不难发现
+$$\begin{aligned} 
+\pi(G \without e) 
+&\eqq \pi(G \without e \sstr{中} A,B ~\str{同色的部分}) ~+ \\
+& \kern{3.3em} \pi(G \without e \sstr{中} A,B ~\str{异色的部分}) \\
+&\eqq \pi(G / e) + \pi(G)
+\end{aligned}$$</p>
 </details>
     </section></article>
 
