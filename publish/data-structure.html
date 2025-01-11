@@ -347,9 +347,9 @@ document.addEventListener("DOMContentLoaded", () => {
       <details id=data-structure-binary-tree open><summary><header><h1><span class="taxon">Definition. </span>二叉树 <a class="slug" href="/data-structure/binary-tree.html">[data-structure/binary-tree]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-9-24</li></ul></div></header></summary><p>$\gdef\quads#1{\quad #1 \quad}$
 $\gdef\eqq{\quads=}$</p>
 <p>二叉树意味树的每个结点最多两个子树. 其类型由两个构造器归纳给出</p>
-<p><div style="text-align: center"><img src = "/./data-structure\tree-def.svg" /></div></p>
+<p><div style="text-align: center"><img src = "./data-structure\tree-def.svg" /></div></p>
 <p>叶结点构造器 <code>leaf</code> 用于构造出一棵空树, 空树作为某个结点的所有子结点时, 该结点正是叶结点. 相应的, 二叉树的值存储在非叶结点中. 每个 (非空, 无标记) 二叉树类型的值要么是一个单结点 $\{\text{pt}\} = 1$, 要么等价于二叉树的有序配对 $B \times B = B^2$. 即 $B \xrightarrow{\sim} \{\text{pt}\} \sqcup B^2$.</p>
-<p><div style="text-align: center"><img src = "/./data-structure\binary-tree.svg" /></div></p>
+<p><div style="text-align: center"><img src = "./data-structure\binary-tree.svg" /></div></p>
 <p>换言之, 二叉树可定义为某种满足 $B=1+B^2$ 的 (代数) 结构. 回顾 $6$ 次分圆多项式 $$ \Phi_6(x) \eqq x^2-x+1 $$ 其复根 $\zeta_6$, $\zeta^{-1}_6$ 是所谓的 $6$ 次本原单位根.</p>
 <p><section class="block hide-metadata" data-taxon="Theorem. ">
       <details id=data-structure-blass-lawvere open><summary><header><h1><span class="taxon">Theorem. </span>Blass–Lawvere, 七树合一定理 <a class="slug" href="/data-structure/blass-lawvere.html">[data-structure/blass-lawvere]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-9-24</li></ul></div></header></summary><p>$\gdef\N{\mathbf{N}}$
@@ -376,15 +376,6 @@ $\gdef\Z{\mathbf{Z}}$</p>
 </details>
     </section></p>
 <p>记二叉树上所有度为 $d$ 的结点为集合 $N_d$, $n_d = |N_d|$. 对于每个叶结点 $\ell \in N_0$, 它总是有一个双亲节点, 而非叶结点 $N_{>0} = N_1 \cup N_2$ 至少有一个子节点.</p>
-<!-- 考虑一个任意的节点, 连同其存在的左右子结点视为一组, 任选其中一组 $g$, 必然是以下三种情况之一: 
-- 仅有叶结点, $n_0(g) = 1$. 
-- 只包含左或右子结点, $n_0(g) = 1, n_1(g) = 1$. 
-- 包含左右子结点, $n_0(g) = 2$, $n_2(g) = 1$. 
-
-在这三种情况中, $n_0(g) = n_2(g) + 1$,  -->
-<!-- 现在对所有的 $g$ 求和, $\sum_g n_0(g) = \sum_g n_2(g) + 1$.  -->
-<!-- $n_0 = n_2 + 1$ -->
-<!-- 我们称根节点所在的那一层为树的顶层, 相应的整棵树最底端的叶结点所在的层为树的底层.  -->
 </details>
     </section></p>
 <!-- [](/data-structure/dual-number.md#:embed) -->
@@ -489,7 +480,7 @@ $$\begin{aligned}
 </span>
 .</p>
 <p>现在, 由于 <span class="link local"><a href="/data-structure/deletion-contraction" title="删除-收缩公式">删除-收缩公式</a></span>, 可以知道 $\pi(C_4)$ 的着色数是 $4$ 点径图与三点环图 $C_3$ 着色数的差, 即</p>
-<p><div style="text-align: center"><img src = "/./data-structure\chromatic-0001.svg" /></div></p>
+<p><div style="text-align: center"><img src = "./data-structure\chromatic-0001.svg" /></div></p>
 </details>
     </section></p>
 </details>
