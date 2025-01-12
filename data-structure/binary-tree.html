@@ -343,20 +343,20 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 });
 </script><body><div id="grid-wrapper"><article><section class="block" data-taxon="Definition. ">
-      <details id=data-structure-binary-tree open><summary><header><h1><span class="taxon">Definition. </span>二叉树 <a class="slug" href="./data-structure/binary-tree.html">[data-structure/binary-tree]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-9-24</li></ul></div></header></summary><p>$\gdef\quads#1{\quad #1 \quad}$
+      <details id=data-structure-binary-tree open><summary><header><h1><span class="taxon">Definition. </span>二叉树 <a class="slug" href="https://kokic.github.io/echo/data-structure/binary-tree.html">[data-structure/binary-tree]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-9-24</li></ul></div></header></summary><p>$\gdef\quads#1{\quad #1 \quad}$
 $\gdef\eqq{\quads=}$</p>
 <p>二叉树意味树的每个结点最多两个子树. 其类型由两个构造器归纳给出</p>
-<p><div style="text-align: center"><img src = "./data-structure\tree-def.svg" /></div></p>
+<p><div style="text-align: center"><img src = "https://kokic.github.io/echo/data-structure\tree-def.svg" /></div></p>
 <p>叶结点构造器 <code>leaf</code> 用于构造出一棵空树, 空树作为某个结点的所有子结点时, 该结点正是叶结点. 相应的, 二叉树的值存储在非叶结点中. 每个 (非空, 无标记) 二叉树类型的值要么是一个单结点 $\{\text{pt}\} = 1$, 要么等价于二叉树的有序配对 $B \times B = B^2$. 即 $B \xrightarrow{\sim} \{\text{pt}\} \sqcup B^2$.</p>
-<p><div style="text-align: center"><img src = "./data-structure\binary-tree.svg" /></div></p>
+<p><div style="text-align: center"><img src = "https://kokic.github.io/echo/data-structure\binary-tree.svg" /></div></p>
 <p>换言之, 二叉树可定义为某种满足 $B=1+B^2$ 的 (代数) 结构. 回顾 $6$ 次分圆多项式 $$ \Phi_6(x) \eqq x^2-x+1 $$ 其复根 $\zeta_6$, $\zeta^{-1}_6$ 是所谓的 $6$ 次本原单位根.</p>
 <p><section class="block hide-metadata" data-taxon="Theorem. ">
-      <details id=data-structure-blass-lawvere open><summary><header><h1><span class="taxon">Theorem. </span>Blass–Lawvere, 七树合一定理 <a class="slug" href="./data-structure/blass-lawvere.html">[data-structure/blass-lawvere]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-9-24</li></ul></div></header></summary><p>$\gdef\N{\mathbf{N}}$
+      <details id=data-structure-blass-lawvere open><summary><header><h1><span class="taxon">Theorem. </span>Blass–Lawvere, 七树合一定理 <a class="slug" href="https://kokic.github.io/echo/data-structure/blass-lawvere.html">[data-structure/blass-lawvere]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-9-24</li></ul></div></header></summary><p>$\gdef\N{\mathbf{N}}$
 $\gdef\Z{\mathbf{Z}}$</p>
 <p>记 $B$ 是二叉树类型, 则存在一个 “极精确的双射” $B \xrightarrow{\sim} B^7$.</p>
 <p>显然并非所有 $\zeta_6$ 满足的等式都能提升到 $B$ 之间的同构, 如 $B^6 \ncong 1$. 自然的问题是, 哪些等式能提升到同构? 这个问题由下面的 Fiore–Leinster 定理回答.</p>
 <p><section class="block hide-metadata" data-taxon="Theorem. ">
-      <details id=data-structure-fiore-leinster open><summary><header><h1><span class="taxon">Theorem. </span>Fiore–Leinster <a class="slug" href="./data-structure/fiore-leinster.html">[data-structure/fiore-leinster]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-9-24</li><li class="meta-item"><a class="link external" href="https://arxiv.org/abs/math/0211454">https://arxiv.org/abs/math/0211454</a></li></ul></div></header></summary><p>$\gdef\N{\mathbf{N}}$
+      <details id=data-structure-fiore-leinster open><summary><header><h1><span class="taxon">Theorem. </span>Fiore–Leinster <a class="slug" href="https://kokic.github.io/echo/data-structure/fiore-leinster.html">[data-structure/fiore-leinster]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-9-24</li><li class="meta-item"><a class="link external" href="https://arxiv.org/abs/math/0211454">https://arxiv.org/abs/math/0211454</a></li></ul></div></header></summary><p>$\gdef\N{\mathbf{N}}$
 $\gdef\Z{\mathbf{Z}}$</p>
 <p>设 $f,g_1,g_2 \in \N[x]$, 其中 $f$ 有非零常数项且 $\deg f \ge 2$. 若 $f(x) - x$ 整除非常值的 $g_1-g_2$ (在 $\Z[x]$ 中), 则在 $\N[x]/(x=f(x))$ 中, $g_1(x)=g_2(x)$.</p>
 </details>
