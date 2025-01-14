@@ -9,6 +9,7 @@ $\gdef\ul#1{\underline{#1}}$
 $\gdef\spaces#1{~ #1 ~}$
 $\gdef\quads#1{\quad #1 \quad}$
 $\gdef\eqq{\quads=}$
+$\gdef\R{\mathbf{R}}$
 $\gdef\Q{\mathbf{Q}}$
 
 有两个正方体, 一个边长为 $1$, 另一个边长为 $2$. 请找到另外两个边长为有理数的正方体使它们的体积总和相同. 换言之, 求下述方程的一组 (正) 有理解: 
@@ -39,5 +40,9 @@ $$ x(P) \spaces + x(Q) \spaces + x(S) \spaces
 这使得 $x(S) \in \Q$. 我们也可以将这个想法直接应用到二次曲线上. 
 
 [+](./circular-parameterization.md#:embed)
+
+<!-- $$
+(\cos \theta, \sin \theta) \in C(\R) \quads{\hookleftarrow}  C(\Q) \ni \bigg(\frac{1-t^2}{1+t^2}, \frac{2t}{1+t^2}\bigg)
+$$ -->
 
 [+](./circular-curve.md#:embed)

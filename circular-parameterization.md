@@ -1,7 +1,7 @@
 
 ---
 title: 圆的参数化
-taxon: Exegesis
+taxon: exegesis
 author: kokic
 date: 2024-12-28
 ---
