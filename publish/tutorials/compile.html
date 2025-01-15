@@ -74,6 +74,11 @@ pre>code {
 }
 
 /* !forest */
+.footnote-definition:last-child {
+  margin-bottom: 1em;
+}
+
+/* !forest */
 .footnote-definition>p {
   display: inline;
 }
@@ -356,7 +361,8 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 });
 </script><body><div id="grid-wrapper"><article><section class="block" data-taxon="">
-      <details id=tutorials-compile open><summary><header><h1><span class="taxon"></span>Kodama 编译指令 <a class="slug" href="https://kokic.github.io/echo/tutorials/compile.html">[tutorials/compile]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2025-1-4</li></ul></div></header></summary><p>指令 <code>kodama compile</code> 或缩写为 <code>kodama c</code> 将输入的 Markdown 文件构建成 HTML 文件.</p>
+      <details id=tutorials-compile open><summary><header><h1><span class="taxon"></span>Kodama 编译指令 <a class="slug" href="https://kokic.github.io/echo/tutorials/compile.html">[tutorials/compile]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2025-1-4</li></ul></div></header></summary><p>指令 <code>kodama compile</code> 或缩写为 <code>kodama c</code> 将输入的 Markdown 文件构建成 HTML 文件.
+尽管有 <code>--root</code> 参数, 但仍然建议所有用户在 <code>index.md</code> 文件所在的目录下执行 <code>kodama c</code>.</p>
 <pre><code>$ kodama c --help
 Compiles an input markdown file into HTML format
 
@@ -366,10 +372,15 @@ Arguments:
   &lt;INPUT&gt;  Path to input Typst file
 
 Options:
+  -b, --base &lt;BASE&gt;      Base URL or publish URL (e.g. https://www.example.com/) [default: /]
   -o, --output &lt;OUTPUT&gt;  Path to output dir [default: ./publish]
   -r, --root &lt;ROOT&gt;      Configures the project root (for absolute paths) [default: ./] 
   -h, --help             Print help
 </code></pre>
+<p>对于当前这个网站的构建来说, 由于最终部署到的 URL 为 <span class="link external"><a href="https://kokic.github.io/echo" title="https://kokic.github.io/echo">https://kokic.github.io/echo</a></span>, 并非该域名的根目录, 为了保证生成链接的正确性, 用户应该指定 <code>--base</code> 这一编译参数, 即</p>
+<pre><code class="language-sh">kodama c index.md -b=https://kokic.github.io/echo/
+</code></pre>
+<p>当然, 如果用户只是在本地使用, 就不必考虑这个问题了.</p>
 </details>
     </section></article>
 

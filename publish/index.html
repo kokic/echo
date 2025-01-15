@@ -74,6 +74,11 @@ pre>code {
 }
 
 /* !forest */
+.footnote-definition:last-child {
+  margin-bottom: 1em;
+}
+
+/* !forest */
 .footnote-definition>p {
   display: inline;
 }
@@ -771,17 +776,20 @@ $$\begin{aligned}
     </section>
 <section class="block hide-metadata" data-taxon="">
       <details id=tutorials ><summary><header><h1><span class="taxon"></span>Kodama Tutorials <a class="slug" href="https://kokic.github.io/echo/tutorials.html">[tutorials]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-12-31</li></ul></div></header></summary><p><section class="block hide-metadata" data-taxon="">
-      <details id=tutorials-install open><summary><header><h1><span class="taxon"></span>安装 <a class="slug" href="https://kokic.github.io/echo/tutorials/install.html">[tutorials/install]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-12-31</li></ul></div></header></summary><p>你可以根据目标设备的架构直接从 <span class="link external"><a href="https://github.com/kokic/kodama/releases" title="Github Release">Github Release</a></span> 页面下载二进制文件.</p>
+      <details id=tutorials-install open><summary><header><h1><span class="taxon"></span>安装 <a class="slug" href="https://kokic.github.io/echo/tutorials/install.html">[tutorials/install]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-12-31</li></ul></div></header></summary><p>你可以根据目标设备的架构直接从 <span class="link external"><a href="https://github.com/kokic/kodama/releases" title="Github Release">Github Release</a></span> 页面下载二进制文件.
+在 Termux 等 Android 环境中使用请选择 <code>aarch64-unknown-linux-musl</code> 架构.</p>
 <ul>
-<li>确保 kodama 位于可执行目录.</li>
-<li>确保 kodama 有可执行权限.</li>
-<li>如果你乐意, 将 kodama 添加到环境变量.</li>
+<li>确保 Kodama 位于可执行目录.</li>
+<li>确保 Kodama 有可执行权限.</li>
+<li>如果你乐意, 将 Kodama 添加到环境变量.</li>
+<li>Kodama 不内置 <span class="link external"><a href="https://github.com/typst/typst" title="Typst">Typst</a></span>, 因此如果你的内容涉及 Typst 文本, 你需要保证环境变量中有可用的 Typst 程序.</li>
 </ul>
 <p>当 <span class="link external"><a href="https://github.com/kokic/kodama/releases" title="Github Release">Github Release</a></span> 页面缺少适合你设备的文件时, 你可以从 <span class="link external"><a href="https://github.com/kokic/kodama" title="源代码">源代码</a></span> 开始自己构建, 这也很容易.</p>
 </details>
     </section>
 <section class="block hide-metadata" data-taxon="">
-      <details id=tutorials-compile open><summary><header><h1><span class="taxon"></span>编译 <a class="slug" href="https://kokic.github.io/echo/tutorials/compile.html">[tutorials/compile]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2025-1-4</li></ul></div></header></summary><p>指令 <code>kodama compile</code> 或缩写为 <code>kodama c</code> 将输入的 Markdown 文件构建成 HTML 文件.</p>
+      <details id=tutorials-compile open><summary><header><h1><span class="taxon"></span>编译 <a class="slug" href="https://kokic.github.io/echo/tutorials/compile.html">[tutorials/compile]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2025-1-4</li></ul></div></header></summary><p>指令 <code>kodama compile</code> 或缩写为 <code>kodama c</code> 将输入的 Markdown 文件构建成 HTML 文件.
+尽管有 <code>--root</code> 参数, 但仍然建议所有用户在 <code>index.md</code> 文件所在的目录下执行 <code>kodama c</code>.</p>
 <pre><code>$ kodama c --help
 Compiles an input markdown file into HTML format
 
@@ -791,16 +799,135 @@ Arguments:
   &lt;INPUT&gt;  Path to input Typst file
 
 Options:
+  -b, --base &lt;BASE&gt;      Base URL or publish URL (e.g. https://www.example.com/) [default: /]
   -o, --output &lt;OUTPUT&gt;  Path to output dir [default: ./publish]
   -r, --root &lt;ROOT&gt;      Configures the project root (for absolute paths) [default: ./] 
   -h, --help             Print help
 </code></pre>
+<p>对于当前这个网站的构建来说, 由于最终部署到的 URL 为 <span class="link external"><a href="https://kokic.github.io/echo" title="https://kokic.github.io/echo">https://kokic.github.io/echo</a></span>, 并非该域名的根目录, 为了保证生成链接的正确性, 用户应该指定 <code>--base</code> 这一编译参数, 即</p>
+<pre><code class="language-sh">kodama c index.md -b=https://kokic.github.io/echo/
+</code></pre>
+<p>当然, 如果用户只是在本地使用, 就不必考虑这个问题了.</p>
 </details>
     </section>
 <section class="block hide-metadata" data-taxon="">
-      <details id=tutorials-publish open><summary><header><h1><span class="taxon"></span>本地预览 <a class="slug" href="https://kokic.github.io/echo/tutorials/publish.html">[tutorials/publish]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-12-31</li></ul></div></header></summary><p>如果你希望在本地查看生成页面 <code>publish/</code> 的效果, 通常你需要一个本地 http 服务器. 你可以使用任何你熟悉的工具完成这件事. 此处推荐 <span class="link external"><a href="https://github.com/svenstaro/miniserve" title="miniserve">miniserve</a></span>, 安装后在 kodama 项目的根路径执行如下指令即可.</p>
+      <details id=tutorials-publish open><summary><header><h1><span class="taxon"></span>本地预览 <a class="slug" href="https://kokic.github.io/echo/tutorials/publish.html">[tutorials/publish]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-12-31</li></ul></div></header></summary><p>如果你希望在本地查看生成页面 <code>publish/</code> 的效果, 通常你需要一个本地 http 服务器. 你可以使用任何你熟悉的工具完成这件事. 此处推荐 <span class="link external"><a href="https://github.com/svenstaro/miniserve" title="miniserve">miniserve</a></span>, 安装后在 Kodama 项目的根路径执行如下指令即可.</p>
 <pre><code class="language-sh">miniserve ./publish --index=index.html --pretty-urls
 </code></pre>
+</details>
+    </section>
+<section class="block hide-metadata" data-taxon="">
+      <details id=tutorials-link-rules open><summary><header><h1><span class="taxon"></span>链接规则 <a class="slug" href="https://kokic.github.io/echo/tutorials/link-rules.html">[tutorials/link-rules]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2025-1-15</li></ul></div></header></summary><p>虽然 Kodama 所处理的 Markdown 文件从语法上说是完全符合 <span class="link external"><a href="https://commonmark.org" title="CommonMark">CommonMark</a></span> 标准的, 但是由于它实现了 CommonMark 之外的许多功能, 为了从语法上区分开来, 用户在使用这些额外的功能时, 请务必遵循下面的规则.</p>
+<p>首先需要强调的是, 无论是嵌入文件 <sup class="footnote-reference"><a href="#embed-link">1</a></sup> 还是内部链接 <sup class="footnote-reference"><a href="#local-link">2</a></sup> 的路径, 都应该是以 <code>/</code> 开头的相对于当前工作区的绝对路径.</p>
+<p><section class="block hide-metadata" data-taxon="">
+      <details id=tutorials-embed-syntax open><summary><header><h1><span class="taxon"></span>嵌入语法 <a class="slug" href="https://kokic.github.io/echo/tutorials/embed-syntax.html">[tutorials/embed-syntax]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2025-1-15</li></ul></div></header></summary><p>嵌入语法和标准链接语法 <code>[text](url)</code> 的区别在于, 嵌入的 <code>url</code> 带有特殊的后缀, 并且只能是以下几种:</p>
+<ul>
+<li><code>.md#:embed</code>, 嵌入 Markdown.</li>
+<li><code>.typ#:block</code>, 嵌入 Typst 编译后的 SVG, 并居中展示为块级元素.</li>
+<li><code>.typ#:span</code>, 嵌入 Typst 编译后的 SVG, 并展示为行间元素 (不常用).</li>
+<li><code>.typ#:shared</code>, 在当前文件的上下文中导入该 Typst 文件, 此时 <code>text</code> 用于提供被导入的定义范围, 如所有定义 <code>*</code>. 配合内联 Typst 语法使用.</li>
+</ul>
+<p>这些特殊后缀采用这种语法的一个原因是, 许多 Markdown 编辑器 <sup class="footnote-reference"><a href="#markdown-editor">1</a></sup> 能够正确识别从而享受文件之间的跳转功能.</p>
+<p>大部分时候, 嵌入语法的 <code>text</code> 都是空着的, 不过由于只有 Markdown 的嵌入才会产生子 <code>section</code>, 此时 <code>text</code> 能用于设置 <code>section</code> 默认是否展开以及在目录中的状态. 这些设置由一系列特定字符构成, 它们对应的功能彼此独立, 因此书写的先后顺序可以任意.</p>
+<ul>
+<li><code>+</code>, 表示当前 <code>section</code> 使用计数器.</li>
+<li><code>-</code>, 默认折叠当前 <code>section</code>. 相应的, 如果这个 <code>section</code> 也有一系列子 <code>section</code>, 这些子 <code>section</code> 将不会出现在当前页面的目录里.</li>
+<li><code>.</code>, 在当前页面的目录里隐藏这个 <code>section</code>.</li>
+</ul>
+<div class="footnote-definition" id="markdown-editor"><sup class="footnote-definition-label">1</sup>
+<p>如 <span class="link external"><a href="https://code.visualstudio.com" title="Visual Studio Code">Visual Studio Code</a></span>.</p>
+</div>
+</details>
+    </section></p>
+<p>很多时候, 对于相当简单的 Typst 文本, 用户会希望有一种方式在展示上对应于 $\KaTeX$ 语境下的行内公式, 这就是内联 Typst.</p>
+<p><section class="block hide-metadata" data-taxon="">
+      <details id=tutorials-inline-syntax open><summary><header><h1><span class="taxon"></span>内联语法 <a class="slug" href="https://kokic.github.io/echo/tutorials/inline-syntax.html">[tutorials/inline-syntax]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2025-1-15</li></ul></div></header></summary><p>内联 Typst 也许是 Kodama 真正的优势所在, 因为设计者做了许多努力使其表现的就和 $\KaTeX$ 行内公式一样或者至少非常接近, 从而不会让 Typst 的那部分行内公式在与 $\KaTeX$ 混合编排时显得廉价.</p>
+<p>内联 Typst 也采用 <span class="link local"><a href="https://kokic.github.io/echo/tutorials/embed-syntax" title="链接类语法">链接类语法</a></span>, 但是此时不会有任何文件被链接. <code>url</code> 部分用于指定内联模式和 <code>margin</code> 参数, 绝大部分情况下, 用户都不需要自己手动设置 <code>margin</code> 参数便可以取得较好的呈现效果. 内联模式是一个为了方便 Markdown 编辑器本身的预览功能而设计的参数, 当用户填入 <code>math</code> 时, <code>text</code> 部分的内容就会被自动加上 <code>${}$</code> 再交给 Typst 编译. 以下是一些例子:</p>
+<ul>
+<li><code>[$x^2$](inline)</code>, <code>x^2</code> 同时是合法的 $\KaTeX$ 公式和 Typst 公式, 此时 Markdown 编辑器本身的预览功能可将它正确呈现为 $x^2$. 虽然这个例子简单到根本没有任何理由使用 Typst.</li>
+<li><code>#</code> 在 Typst 当中是一个高频率使用的字符, 此时如果依然手写 <code>${}$</code> 则会导致编辑器内 Markdown 预览的体验不佳, 这就是内联模式参数 <code>math</code> 的意义. 现在你可以将第一个例子写为 <code>[x^2](inline-math)</code>.</li>
+<li>各个参数的值之间使用 <code>-</code> 分隔. <code>math</code> 和 <code>margin</code> 的位置是固定的, 换言之, 如果这两个参数同时出现, 你只能将 <code>margin</code> 写在 <code>math</code> 之后. <code>margin</code> 由形如 <code>{x}-{y}</code> 的文本构成, <code>x</code> 和 <code>y</code> 是任何有效的 Typst 长度值, 如 <code>0pt-2pt</code>. 当 <code>y</code> 缺失时, <code>y</code> 会采用 <code>x</code> 的值.</li>
+</ul>
+</details>
+    </section></p>
+<div class="footnote-definition" id="embed-link"><sup class="footnote-definition-label">1</sup>
+<p>被嵌入的文件是独立的 Markdown 或者 Typst, 嵌入这一操作会将被链接文件的内容合并到链接的位置, 对于 Markdown, 它将成为一个子 <code>section</code>.</p>
+</div>
+<div class="footnote-definition" id="local-link"><sup class="footnote-definition-label">2</sup>
+<p>内部链接用于链接当前 Kodama 项目的其他 Markdown 文件, 与外部链接相比, 内部链接使用一种特殊的样式.</p>
+</div>
+</details>
+    </section>
+<section class="block hide-metadata" data-taxon="">
+      <details id=tutorials-github-workflow open><summary><header><h1><span class="taxon"></span>持续集成 <a class="slug" href="https://kokic.github.io/echo/tutorials/github-workflow.html">[tutorials/github-workflow]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2025-1-15</li></ul></div></header></summary><p>一个可供参考的 Github Workflow 配置 <sup class="footnote-reference"><a href="#hongjr03-workflow">1</a></sup> 如下.
+唯一需要注意的是环境变量 <code>$PAGE_URL</code>, 用于 <span class="link local"><a href="https://kokic.github.io/echo/tutorials/compile" title="指定待部署页面的 URL">指定待部署页面的 URL</a></span>,
+你可以在仓库的 <code>settings/variables/actions</code> 设置 <span class="link external"><a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables" title="它们">它们</a></span>.</p>
+<pre><code>name: Deploy Kodama site to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+# Default to bash
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Kodama &amp; Typst
+        run: |
+          cargo install --git https://github.com/kokic/kodama.git
+          sudo snap install typst
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build with Kodama
+        run: |
+          kodama c index.md -b=$PAGE_URL
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./publish
+
+# Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: $PAGE_URL
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+</code></pre>
+<div class="footnote-definition" id="hongjr03-workflow"><sup class="footnote-definition-label">1</sup>
+<p>由 <span class="link external"><a href="https://github.com/hongjr03" title="Hong Jiarong">Hong Jiarong</a></span> 提供.</p>
+</div>
 </details>
     </section></p>
 </details>
@@ -820,4 +947,4 @@ AMD 则是 <code>Ctrl + Shift + O</code>. 目前看来这个信息会出现在�
 </details>
     </section></article>
 
-<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class="item-summary"><a class="bullet" href="mille-plateaux.html" title="千高原 [mille-plateaux]">■</a><span class="link"><a href="#mille-plateaux"><span class="taxon"> 1. </span>千高原</a></span><ul class="block"><li class=""><a class="bullet" href="bubble-compose.html" title="冒泡排序合成置换分解 [bubble-compose]">■</a><span class="link"><a href="#bubble-compose"><span class="taxon"> 1.1. </span>冒泡排序合成置换分解</a></span><ul class="block"><li class="display-none"><a class="bullet" href="bubble-compose-proof.html" title="(笔者) [bubble-compose-proof]">■</a><span class="link"><a href="#bubble-compose-proof"><span class="taxon">Proof. </span>(笔者)</a></span></li></ul></li><li class=""><a class="bullet" href="rational-points.html" title="平面曲线的有理点 [rational-points]">■</a><span class="link"><a href="#rational-points"><span class="taxon"> 1.2. </span>平面曲线的有理点</a></span><ul class="block"><li class=""><a class="bullet" href="canterbury.html" title="Canterbury 曲线的切线与自身的交点 [canterbury]">■</a><span class="link"><a href="#canterbury"><span class="taxon">Lemma.  1.2.1. </span>Canterbury 曲线的切线与自身的交点</a></span></li><li class=""><a class="bullet" href="circular-parameterization.html" title="圆的参数化 [circular-parameterization]">■</a><span class="link"><a href="#circular-parameterization"><span class="taxon">Exegesis.  1.2.2. </span>圆的参数化</a></span></li><li class=""><a class="bullet" href="circular-curve.html" title="圆曲线 [circular-curve]">■</a><span class="link"><a href="#circular-curve"><span class="taxon">Definition.  1.2.3. </span>圆曲线</a></span></li></ul></li><li class=""><a class="bullet" href="periodic-functions.html" title="周期函数的构造 [periodic-functions]">■</a><span class="link"><a href="#periodic-functions"><span class="taxon"> 1.3. </span>周期函数的构造</a></span></li></ul></li><li class="item-summary"><a class="bullet" href="data-structure.html" title="数据与可计算结构 [data-structure]">■</a><span class="link"><a href="#data-structure"><span class="taxon"> 2. </span>数据与可计算结构</a></span><ul class="block"><li class=""><a class="bullet" href="data-structure/binary-tree.html" title="二叉树类型 [data-structure/binary-tree]">■</a><span class="link"><a href="#data-structure-binary-tree"><span class="taxon">Definition. </span>二叉树类型</a></span></li><li class=""><a class="bullet" href="data-structure/blass-lawvere.html" title="七树合一定理 [data-structure/blass-lawvere]">■</a><span class="link"><a href="#data-structure-blass-lawvere"><span class="taxon">Theorem. </span>七树合一定理</a></span><ul class="block"><li class="display-none"><a class="bullet" href="data-structure/fiore-leinster.html" title="Fiore–Leinster [data-structure/fiore-leinster]">■</a><span class="link"><a href="#data-structure-fiore-leinster"><span class="taxon">Theorem. </span>Fiore–Leinster</a></span></li></ul></li><li class=""><a class="bullet" href="data-structure/synthetic-differential.html" title="综合微分法 [data-structure/synthetic-differential]">■</a><span class="link"><a href="#data-structure-synthetic-differential"><span class="taxon">Exegesis. </span>综合微分法</a></span><ul class="block"><li class=""><a class="bullet" href="data-structure/complex-step.html" title="复步微分法 [data-structure/complex-step]">■</a><span class="link"><a href="#data-structure-complex-step"><span class="taxon">Exegesis. </span>复步微分法</a></span></li><li class=""><a class="bullet" href="data-structure/dual-number.html" title="对偶数 [data-structure/dual-number]">■</a><span class="link"><a href="#data-structure-dual-number"><span class="taxon">Definition. </span>对偶数</a></span><ul class="block"><li class="display-none"><a class="bullet" href="data-structure/kock-lawvere.html" title="Kock–Lawvere [data-structure/kock-lawvere]">■</a><span class="link"><a href="#data-structure-kock-lawvere"><span class="taxon">Axiom. </span>Kock–Lawvere</a></span><ul class="block"><li class="display-none"><a class="bullet" href="data-structure/kock-lawvere-000A.html" title="所有函数都光滑 [data-structure/kock-lawvere-000A]">■</a><span class="link"><a href="#data-structure-kock-lawvere-000A"><span class="taxon">Corollary. </span>所有函数都光滑</a></span></li></ul></li></ul></li></ul></li><li class=""><a class="bullet" href="data-structure/chromatic-graph.html" title="染色图 [data-structure/chromatic-graph]">■</a><span class="link"><a href="#data-structure-chromatic-graph"><span class="taxon">Definition. </span>染色图</a></span><ul class="block"><li class=""><a class="bullet" href="data-structure/deletion-contraction.html" title="删除-收缩公式 [data-structure/deletion-contraction]">■</a><span class="link"><a href="#data-structure-deletion-contraction"><span class="taxon">Theorem. </span>删除-收缩公式</a></span><ul class="block"><li class="display-none"><a class="bullet" href="data-structure/deletion-contraction-proof.html" title=" [data-structure/deletion-contraction-proof]">■</a><span class="link"><a href="#data-structure-deletion-contraction-proof"><span class="taxon">Proof. </span></a></span></li></ul></li></ul></li></ul></li><li class="item-summary"><a class="bullet" href="tutorials.html" title="Kodama Tutorials [tutorials]">■</a><span class="link"><a href="#tutorials"><span class="taxon"> 3. </span>Kodama Tutorials</a></span><ul class="block"><li class=""><a class="bullet" href="tutorials/install.html" title="安装 [tutorials/install]">■</a><span class="link"><a href="#tutorials-install"><span class="taxon"></span>安装</a></span></li><li class=""><a class="bullet" href="tutorials/compile.html" title="编译 [tutorials/compile]">■</a><span class="link"><a href="#tutorials-compile"><span class="taxon"></span>编译</a></span></li><li class=""><a class="bullet" href="tutorials/publish.html" title="本地预览 [tutorials/publish]">■</a><span class="link"><a href="#tutorials-publish"><span class="taxon"></span>本地预览</a></span></li></ul></li><li class="item-summary"><a class="bullet" href="daily-surf.html" title="Daily Surf [daily-surf]">■</a><span class="link"><a href="#daily-surf"><span class="taxon"> 4. </span>Daily Surf</a></span><ul class="block"><li class=""><a class="bullet" href="daily-surf/nvidia-fps-gpu-cpu.html" title="屏幕右上角的 "FPS GPU CPU 延时" [daily-surf/nvidia-fps-gpu-cpu]">■</a><span class="link"><a href="#daily-surf-nvidia-fps-gpu-cpu"><span class="taxon"></span>屏幕右上角的 "FPS GPU CPU 延时"</a></span></li></ul></li></ul></div></nav></div></body></html>
+<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class="item-summary"><a class="bullet" href="mille-plateaux.html" title="千高原 [mille-plateaux]">■</a><span class="link"><a href="#mille-plateaux"><span class="taxon"> 1. </span>千高原</a></span><ul class="block"><li class=""><a class="bullet" href="bubble-compose.html" title="冒泡排序合成置换分解 [bubble-compose]">■</a><span class="link"><a href="#bubble-compose"><span class="taxon"> 1.1. </span>冒泡排序合成置换分解</a></span><ul class="block"><li class="display-none"><a class="bullet" href="bubble-compose-proof.html" title="(笔者) [bubble-compose-proof]">■</a><span class="link"><a href="#bubble-compose-proof"><span class="taxon">Proof. </span>(笔者)</a></span></li></ul></li><li class=""><a class="bullet" href="rational-points.html" title="平面曲线的有理点 [rational-points]">■</a><span class="link"><a href="#rational-points"><span class="taxon"> 1.2. </span>平面曲线的有理点</a></span><ul class="block"><li class=""><a class="bullet" href="canterbury.html" title="Canterbury 曲线的切线与自身的交点 [canterbury]">■</a><span class="link"><a href="#canterbury"><span class="taxon">Lemma.  1.2.1. </span>Canterbury 曲线的切线与自身的交点</a></span></li><li class=""><a class="bullet" href="circular-parameterization.html" title="圆的参数化 [circular-parameterization]">■</a><span class="link"><a href="#circular-parameterization"><span class="taxon">Exegesis.  1.2.2. </span>圆的参数化</a></span></li><li class=""><a class="bullet" href="circular-curve.html" title="圆曲线 [circular-curve]">■</a><span class="link"><a href="#circular-curve"><span class="taxon">Definition.  1.2.3. </span>圆曲线</a></span></li></ul></li><li class=""><a class="bullet" href="periodic-functions.html" title="周期函数的构造 [periodic-functions]">■</a><span class="link"><a href="#periodic-functions"><span class="taxon"> 1.3. </span>周期函数的构造</a></span></li></ul></li><li class="item-summary"><a class="bullet" href="data-structure.html" title="数据与可计算结构 [data-structure]">■</a><span class="link"><a href="#data-structure"><span class="taxon"> 2. </span>数据与可计算结构</a></span><ul class="block"><li class=""><a class="bullet" href="data-structure/binary-tree.html" title="二叉树类型 [data-structure/binary-tree]">■</a><span class="link"><a href="#data-structure-binary-tree"><span class="taxon">Definition. </span>二叉树类型</a></span></li><li class=""><a class="bullet" href="data-structure/blass-lawvere.html" title="七树合一定理 [data-structure/blass-lawvere]">■</a><span class="link"><a href="#data-structure-blass-lawvere"><span class="taxon">Theorem. </span>七树合一定理</a></span><ul class="block"><li class="display-none"><a class="bullet" href="data-structure/fiore-leinster.html" title="Fiore–Leinster [data-structure/fiore-leinster]">■</a><span class="link"><a href="#data-structure-fiore-leinster"><span class="taxon">Theorem. </span>Fiore–Leinster</a></span></li></ul></li><li class=""><a class="bullet" href="data-structure/synthetic-differential.html" title="综合微分法 [data-structure/synthetic-differential]">■</a><span class="link"><a href="#data-structure-synthetic-differential"><span class="taxon">Exegesis. </span>综合微分法</a></span><ul class="block"><li class=""><a class="bullet" href="data-structure/complex-step.html" title="复步微分法 [data-structure/complex-step]">■</a><span class="link"><a href="#data-structure-complex-step"><span class="taxon">Exegesis. </span>复步微分法</a></span></li><li class=""><a class="bullet" href="data-structure/dual-number.html" title="对偶数 [data-structure/dual-number]">■</a><span class="link"><a href="#data-structure-dual-number"><span class="taxon">Definition. </span>对偶数</a></span><ul class="block"><li class="display-none"><a class="bullet" href="data-structure/kock-lawvere.html" title="Kock–Lawvere [data-structure/kock-lawvere]">■</a><span class="link"><a href="#data-structure-kock-lawvere"><span class="taxon">Axiom. </span>Kock–Lawvere</a></span><ul class="block"><li class="display-none"><a class="bullet" href="data-structure/kock-lawvere-000A.html" title="所有函数都光滑 [data-structure/kock-lawvere-000A]">■</a><span class="link"><a href="#data-structure-kock-lawvere-000A"><span class="taxon">Corollary. </span>所有函数都光滑</a></span></li></ul></li></ul></li></ul></li><li class=""><a class="bullet" href="data-structure/chromatic-graph.html" title="染色图 [data-structure/chromatic-graph]">■</a><span class="link"><a href="#data-structure-chromatic-graph"><span class="taxon">Definition. </span>染色图</a></span><ul class="block"><li class=""><a class="bullet" href="data-structure/deletion-contraction.html" title="删除-收缩公式 [data-structure/deletion-contraction]">■</a><span class="link"><a href="#data-structure-deletion-contraction"><span class="taxon">Theorem. </span>删除-收缩公式</a></span><ul class="block"><li class="display-none"><a class="bullet" href="data-structure/deletion-contraction-proof.html" title=" [data-structure/deletion-contraction-proof]">■</a><span class="link"><a href="#data-structure-deletion-contraction-proof"><span class="taxon">Proof. </span></a></span></li></ul></li></ul></li></ul></li><li class="item-summary"><a class="bullet" href="tutorials.html" title="Kodama Tutorials [tutorials]">■</a><span class="link"><a href="#tutorials"><span class="taxon"> 3. </span>Kodama Tutorials</a></span><ul class="block"><li class=""><a class="bullet" href="tutorials/install.html" title="安装 [tutorials/install]">■</a><span class="link"><a href="#tutorials-install"><span class="taxon"></span>安装</a></span></li><li class=""><a class="bullet" href="tutorials/compile.html" title="编译 [tutorials/compile]">■</a><span class="link"><a href="#tutorials-compile"><span class="taxon"></span>编译</a></span></li><li class=""><a class="bullet" href="tutorials/publish.html" title="本地预览 [tutorials/publish]">■</a><span class="link"><a href="#tutorials-publish"><span class="taxon"></span>本地预览</a></span></li><li class=""><a class="bullet" href="tutorials/link-rules.html" title="链接规则 [tutorials/link-rules]">■</a><span class="link"><a href="#tutorials-link-rules"><span class="taxon"></span>链接规则</a></span><ul class="block"><li class=""><a class="bullet" href="tutorials/embed-syntax.html" title="嵌入语法 [tutorials/embed-syntax]">■</a><span class="link"><a href="#tutorials-embed-syntax"><span class="taxon"></span>嵌入语法</a></span></li><li class=""><a class="bullet" href="tutorials/inline-syntax.html" title="内联语法 [tutorials/inline-syntax]">■</a><span class="link"><a href="#tutorials-inline-syntax"><span class="taxon"></span>内联语法</a></span></li></ul></li><li class=""><a class="bullet" href="tutorials/github-workflow.html" title="持续集成 [tutorials/github-workflow]">■</a><span class="link"><a href="#tutorials-github-workflow"><span class="taxon"></span>持续集成</a></span></li></ul></li><li class="item-summary"><a class="bullet" href="daily-surf.html" title="Daily Surf [daily-surf]">■</a><span class="link"><a href="#daily-surf"><span class="taxon"> 4. </span>Daily Surf</a></span><ul class="block"><li class=""><a class="bullet" href="daily-surf/nvidia-fps-gpu-cpu.html" title="屏幕右上角的 "FPS GPU CPU 延时" [daily-surf/nvidia-fps-gpu-cpu]">■</a><span class="link"><a href="#daily-surf-nvidia-fps-gpu-cpu"><span class="taxon"></span>屏幕右上角的 "FPS GPU CPU 延时"</a></span></li></ul></li></ul></div></nav></div></body></html>
