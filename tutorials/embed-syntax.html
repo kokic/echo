@@ -360,9 +360,24 @@ document.addEventListener("DOMContentLoaded", () => {
       .innerHTML = taxon;
   })
 });
-</script><body><div id="grid-wrapper"><article><section class="block" data-taxon="Proof. ">
-      <details id=bubble-compose-proof open><summary><header><h1><span class="taxon">Proof. </span>置换分解的构造证明 <a class="slug" href="https://kokic.github.io/echo/bubble-compose-proof.html">[bubble-compose-proof]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-12-27</li></ul></div></header></summary><p>冒泡排序使用若干次对换将 $X$, $Y$ 打到有序列表 $Z$, 把这些对换之积复合出的两个映射记为 $\sigma_X, \sigma_Y$. 现在观察下图, 写出 $\sigma_Y^{-1}\sigma_X$, 这当然就是 $\sigma$.</p>
-<p><div style="text-align: center"><img src = "https://kokic.github.io/echo/bubble-compose.svg" /></div></p>
+</script><body><div id="grid-wrapper"><article><section class="block" data-taxon="">
+      <details id=tutorials-embed-syntax open><summary><header><h1><span class="taxon"></span>嵌入语法 <a class="slug" href="https://kokic.github.io/echo/tutorials/embed-syntax.html">[tutorials/embed-syntax]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2025-1-15</li></ul></div></header></summary><p>嵌入语法和标准链接语法 <code>[text](url)</code> 的区别在于, 嵌入的 <code>url</code> 带有特殊的后缀, 并且只能是以下几种:</p>
+<ul>
+<li><code>.md#:embed</code>, 嵌入 Markdown.</li>
+<li><code>.typ#:block</code>, 嵌入 Typst 编译后的 SVG, 并居中展示为块级元素.</li>
+<li><code>.typ#:span</code>, 嵌入 Typst 编译后的 SVG, 并展示为行间元素 (不常用).</li>
+<li><code>.typ#:shared</code>, 在当前文件的上下文中导入该 Typst 文件, 此时 <code>text</code> 用于提供被导入的定义范围, 如所有定义 <code>*</code>. 配合内联 Typst 语法使用.</li>
+</ul>
+<p>这些特殊后缀采用这种语法的一个原因是, 许多 Markdown 编辑器 <sup class="footnote-reference"><a href="#markdown-editor">1</a></sup> 能够正确识别从而享受文件之间的跳转功能.</p>
+<p>大部分时候, 嵌入语法的 <code>text</code> 都是空着的, 不过由于只有 Markdown 的嵌入才会产生子 <code>section</code>, 此时 <code>text</code> 能用于设置 <code>section</code> 默认是否展开以及在目录中的状态. 这些设置由一系列特定字符构成, 它们对应的功能彼此独立, 因此书写的先后顺序可以任意.</p>
+<ul>
+<li><code>+</code>, 表示当前 <code>section</code> 使用计数器.</li>
+<li><code>-</code>, 默认折叠当前 <code>section</code>. 相应的, 如果这个 <code>section</code> 也有一系列子 <code>section</code>, 这些子 <code>section</code> 将不会出现在当前页面的目录里.</li>
+<li><code>.</code>, 在当前页面的目录里隐藏这个 <code>section</code>.</li>
+</ul>
+<div class="footnote-definition" id="markdown-editor"><sup class="footnote-definition-label">1</sup>
+<p>如 <span class="link external"><a href="https://code.visualstudio.com" title="Visual Studio Code">Visual Studio Code</a></span>.</p>
+</div>
 </details>
     </section></article>
 

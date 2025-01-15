@@ -361,48 +361,6 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 });
 </script><body><div id="grid-wrapper"><article><section class="block" data-taxon="">
-      <details id=tutorials open><summary><header><h1><span class="taxon"></span>Kodama Tutorials <a class="slug" href="https://kokic.github.io/echo/tutorials.html">[tutorials]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-12-31</li></ul></div></header></summary><p><section class="block hide-metadata" data-taxon="">
-      <details id=tutorials-install open><summary><header><h1><span class="taxon"></span>安装 <a class="slug" href="https://kokic.github.io/echo/tutorials/install.html">[tutorials/install]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-12-31</li></ul></div></header></summary><p>你可以根据目标设备的架构直接从 <span class="link external"><a href="https://github.com/kokic/kodama/releases" title="Github Release">Github Release</a></span> 页面下载二进制文件.
-在 Termux 等 Android 环境中使用请选择 <code>aarch64-unknown-linux-musl</code> 架构.</p>
-<ul>
-<li>确保 Kodama 位于可执行目录.</li>
-<li>确保 Kodama 有可执行权限.</li>
-<li>如果你乐意, 将 Kodama 添加到环境变量.</li>
-<li>Kodama 不内置 <span class="link external"><a href="https://github.com/typst/typst" title="Typst">Typst</a></span>, 因此如果你的内容涉及 Typst 文本, 你需要保证环境变量中有可用的 Typst 程序.</li>
-</ul>
-<p>当 <span class="link external"><a href="https://github.com/kokic/kodama/releases" title="Github Release">Github Release</a></span> 页面缺少适合你设备的文件时, 你可以从 <span class="link external"><a href="https://github.com/kokic/kodama" title="源代码">源代码</a></span> 开始自己构建, 这也很容易.</p>
-</details>
-    </section>
-<section class="block hide-metadata" data-taxon="">
-      <details id=tutorials-compile open><summary><header><h1><span class="taxon"></span>编译 <a class="slug" href="https://kokic.github.io/echo/tutorials/compile.html">[tutorials/compile]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2025-1-4</li></ul></div></header></summary><p>指令 <code>kodama compile</code> 或缩写为 <code>kodama c</code> 将输入的 Markdown 文件构建成 HTML 文件.
-尽管有 <code>--root</code> 参数, 但仍然建议所有用户在 <code>index.md</code> 文件所在的目录下执行 <code>kodama c</code>.</p>
-<pre><code>$ kodama c --help
-Compiles an input markdown file into HTML format
-
-Usage: kodama.exe compile [OPTIONS] &lt;INPUT&gt;
-
-Arguments:
-  &lt;INPUT&gt;  Path to input Typst file
-
-Options:
-  -b, --base &lt;BASE&gt;      Base URL or publish URL (e.g. https://www.example.com/) [default: /]
-  -o, --output &lt;OUTPUT&gt;  Path to output dir [default: ./publish]
-  -r, --root &lt;ROOT&gt;      Configures the project root (for absolute paths) [default: ./] 
-  -h, --help             Print help
-</code></pre>
-<p>对于当前这个网站的构建来说, 由于最终部署到的 URL 为 <span class="link external"><a href="https://kokic.github.io/echo" title="https://kokic.github.io/echo">https://kokic.github.io/echo</a></span>, 并非该域名的根目录, 为了保证生成链接的正确性, 用户应该指定 <code>--base</code> 这一编译参数, 即</p>
-<pre><code class="language-sh">kodama c index.md -b=https://kokic.github.io/echo/
-</code></pre>
-<p>当然, 如果用户只是在本地使用, 就不必考虑这个问题了.</p>
-</details>
-    </section>
-<section class="block hide-metadata" data-taxon="">
-      <details id=tutorials-publish open><summary><header><h1><span class="taxon"></span>本地预览 <a class="slug" href="https://kokic.github.io/echo/tutorials/publish.html">[tutorials/publish]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-12-31</li></ul></div></header></summary><p>如果你希望在本地查看生成页面 <code>publish/</code> 的效果, 通常你需要一个本地 http 服务器. 你可以使用任何你熟悉的工具完成这件事. 此处推荐 <span class="link external"><a href="https://github.com/svenstaro/miniserve" title="miniserve">miniserve</a></span>, 安装后在 Kodama 项目的根路径执行如下指令即可.</p>
-<pre><code class="language-sh">miniserve ./publish --index=index.html --pretty-urls
-</code></pre>
-</details>
-    </section>
-<section class="block hide-metadata" data-taxon="">
       <details id=tutorials-link-rules open><summary><header><h1><span class="taxon"></span>链接规则 <a class="slug" href="https://kokic.github.io/echo/tutorials/link-rules.html">[tutorials/link-rules]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2025-1-15</li></ul></div></header></summary><p>虽然 Kodama 所处理的 Markdown 文件从语法上说是完全符合 <span class="link external"><a href="https://commonmark.org" title="CommonMark">CommonMark</a></span> 标准的, 但是由于它实现了 CommonMark 之外的许多功能, 为了从语法上区分开来, 用户在使用这些额外的功能时, 请务必遵循下面的规则.</p>
 <p>首先需要强调的是, 无论是嵌入文件 <sup class="footnote-reference"><a href="#embed-link">1</a></sup> 还是内部链接 <sup class="footnote-reference"><a href="#local-link">2</a></sup> 的路径, 都应该是以 <code>/</code> 开头的相对于当前工作区的绝对路径.</p>
 <p><section class="block hide-metadata" data-taxon="">
@@ -443,80 +401,6 @@ Options:
 <p>内部链接用于链接当前 Kodama 项目的其他 Markdown 文件, 与外部链接相比, 内部链接使用一种特殊的样式.</p>
 </div>
 </details>
-    </section>
-<section class="block hide-metadata" data-taxon="">
-      <details id=tutorials-github-workflow open><summary><header><h1><span class="taxon"></span>持续集成 <a class="slug" href="https://kokic.github.io/echo/tutorials/github-workflow.html">[tutorials/github-workflow]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2025-1-15</li></ul></div></header></summary><p>一个可供参考的 Github Workflow 配置 <sup class="footnote-reference"><a href="#hongjr03-workflow">1</a></sup> 如下.
-唯一需要注意的是环境变量 <code>$PAGE_URL</code>, 用于 <span class="link local"><a href="https://kokic.github.io/echo/tutorials/compile" title="指定待部署页面的 URL">指定待部署页面的 URL</a></span>,
-你可以在仓库的 <code>settings/variables/actions</code> 设置 <span class="link external"><a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables" title="它们">它们</a></span>.</p>
-<pre><code>name: Deploy Kodama site to Pages
-
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-# Default to bash
-defaults:
-  run:
-    shell: bash
-
-jobs:
-  # Build job
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install Kodama &amp; Typst
-        run: |
-          cargo install --git https://github.com/kokic/kodama.git
-          sudo snap install typst
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
-      - name: Build with Kodama
-        run: |
-          kodama c index.md -b=$PAGE_URL
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./publish
-
-# Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: $PAGE_URL
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-</code></pre>
-<div class="footnote-definition" id="hongjr03-workflow"><sup class="footnote-definition-label">1</sup>
-<p>由 <span class="link external"><a href="https://github.com/hongjr03" title="Hong Jiarong">Hong Jiarong</a></span> 提供.</p>
-</div>
-</details>
-    </section></p>
-</details>
     </section></article>
 
-<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="tutorials/install.html" title="安装 [tutorials/install]">■</a><span class="link"><a href="#tutorials-install"><span class="taxon"></span>安装</a></span></li><li class=""><a class="bullet" href="tutorials/compile.html" title="编译 [tutorials/compile]">■</a><span class="link"><a href="#tutorials-compile"><span class="taxon"></span>编译</a></span></li><li class=""><a class="bullet" href="tutorials/publish.html" title="本地预览 [tutorials/publish]">■</a><span class="link"><a href="#tutorials-publish"><span class="taxon"></span>本地预览</a></span></li><li class=""><a class="bullet" href="tutorials/link-rules.html" title="链接规则 [tutorials/link-rules]">■</a><span class="link"><a href="#tutorials-link-rules"><span class="taxon"></span>链接规则</a></span><ul class="block"><li class=""><a class="bullet" href="tutorials/embed-syntax.html" title="嵌入语法 [tutorials/embed-syntax]">■</a><span class="link"><a href="#tutorials-embed-syntax"><span class="taxon"></span>嵌入语法</a></span></li><li class=""><a class="bullet" href="tutorials/inline-syntax.html" title="内联语法 [tutorials/inline-syntax]">■</a><span class="link"><a href="#tutorials-inline-syntax"><span class="taxon"></span>内联语法</a></span></li></ul></li><li class=""><a class="bullet" href="tutorials/github-workflow.html" title="持续集成 [tutorials/github-workflow]">■</a><span class="link"><a href="#tutorials-github-workflow"><span class="taxon"></span>持续集成</a></span></li></ul></div></nav></div></body></html>
+<nav id="toc"><div class="block"><h1>Table of Contents</h1><ul class="block"><li class=""><a class="bullet" href="tutorials/embed-syntax.html" title="嵌入语法 [tutorials/embed-syntax]">■</a><span class="link"><a href="#tutorials-embed-syntax"><span class="taxon"></span>嵌入语法</a></span></li><li class=""><a class="bullet" href="tutorials/inline-syntax.html" title="内联语法 [tutorials/inline-syntax]">■</a><span class="link"><a href="#tutorials-inline-syntax"><span class="taxon"></span>内联语法</a></span></li></ul></div></nav></div></body></html>

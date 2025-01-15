@@ -360,9 +360,76 @@ document.addEventListener("DOMContentLoaded", () => {
       .innerHTML = taxon;
   })
 });
-</script><body><div id="grid-wrapper"><article><section class="block" data-taxon="Proof. ">
-      <details id=bubble-compose-proof open><summary><header><h1><span class="taxon">Proof. </span>置换分解的构造证明 <a class="slug" href="https://kokic.github.io/echo/bubble-compose-proof.html">[bubble-compose-proof]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2024-12-27</li></ul></div></header></summary><p>冒泡排序使用若干次对换将 $X$, $Y$ 打到有序列表 $Z$, 把这些对换之积复合出的两个映射记为 $\sigma_X, \sigma_Y$. 现在观察下图, 写出 $\sigma_Y^{-1}\sigma_X$, 这当然就是 $\sigma$.</p>
-<p><div style="text-align: center"><img src = "https://kokic.github.io/echo/bubble-compose.svg" /></div></p>
+</script><body><div id="grid-wrapper"><article><section class="block" data-taxon="">
+      <details id=tutorials-github-workflow open><summary><header><h1><span class="taxon"></span>Github Workflow <a class="slug" href="https://kokic.github.io/echo/tutorials/github-workflow.html">[tutorials/github-workflow]</a></h1><div class="metadata"><ul><li class="meta-item">kokic</li><li class="meta-item">2025-1-15</li></ul></div></header></summary><p>一个可供参考的 Github Workflow 配置 <sup class="footnote-reference"><a href="#hongjr03-workflow">1</a></sup> 如下.
+唯一需要注意的是环境变量 <code>$PAGE_URL</code>, 用于 <span class="link local"><a href="https://kokic.github.io/echo/tutorials/compile" title="指定待部署页面的 URL">指定待部署页面的 URL</a></span>,
+你可以在仓库的 <code>settings/variables/actions</code> 设置 <span class="link external"><a href="https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables" title="它们">它们</a></span>.</p>
+<pre><code>name: Deploy Kodama site to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+# Default to bash
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Kodama &amp; Typst
+        run: |
+          cargo install --git https://github.com/kokic/kodama.git
+          sudo snap install typst
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build with Kodama
+        run: |
+          kodama c index.md -b=$PAGE_URL
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./publish
+
+# Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: $PAGE_URL
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+</code></pre>
+<div class="footnote-definition" id="hongjr03-workflow"><sup class="footnote-definition-label">1</sup>
+<p>由 <span class="link external"><a href="https://github.com/hongjr03" title="Hong Jiarong">Hong Jiarong</a></span> 提供.</p>
+</div>
 </details>
     </section></article>
 
